@@ -237,12 +237,12 @@ switch($action) {
 
                 //Creation of the user cookie with the received values from the model
                 $expire = 3600*24*30;
-                setcookie("pseudo",$data[3],time()+ $expire, "/WebProject-masterV1/");
-                setcookie("id",$data[0],time()+ $expire, "/WebProject-masterV1/");
-                setcookie("mail",$data[5],time()+ $expire, "/WebProject-masterV1/");
-                setcookie("lastname",$data[1],time()+ $expire, "/WebProject-masterV1/");
-                setcookie("firstname",$data[2],time()+ $expire, "/WebProject-masterV1/");
-                setcookie("status",$data[6],time()+ $expire, "/WebProject-masterV1/");
+                setcookie("pseudo",$data[3],time()+ $expire, "/WebProject/");
+                setcookie("id",$data[0],time()+ $expire, "/WebProject/");
+                setcookie("mail",$data[5],time()+ $expire, "/WebProject/");
+                setcookie("lastname",$data[1],time()+ $expire, "/WebProject/");
+                setcookie("firstname",$data[2],time()+ $expire, "/WebProject/");
+                setcookie("status",$data[6],time()+ $expire, "/WebProject/");
 
                 header('Location: ../view/index.php');
 
