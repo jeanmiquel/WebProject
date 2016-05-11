@@ -16,7 +16,7 @@ class ModelUser extends Model {
 
         $bd = self::getDB(); //DB Connection
 
-        $req = $bd->query('SELECT * FROM Utilisateur'); //Select every users in the DB
+        $req = $bd->query('SELECT * FROM utilisateur'); //Select every users in the DB
 
         $data = $req->fetchAll(); //List the result of the request in an array
 
@@ -73,7 +73,7 @@ class ModelUser extends Model {
         $bd = self::getDB(); //DB Connection
 
 
-        $req=$bd->prepare('SELECT * FROM Utilisateur WHERE pseudoUser = :pseudo'); //Prepare to select all information about the user 
+        $req=$bd->prepare('SELECT * FROM utilisateur WHERE pseudoUser = :pseudo'); //Prepare to select all information about the user 
             
 
         $req->execute($connection); //Execute the selection
@@ -95,7 +95,7 @@ class ModelUser extends Model {
 
         $user=array( 'username' => $name ); //Array parameter for the query
 
-        $req=$bd->prepare('SELECT COUNT(*) FROM Utilisateur WHERE pseudoUser = :username'); //Count the users with the same username
+        $req=$bd->prepare('SELECT COUNT(*) FROM utilisateur WHERE pseudoUser = :username'); //Count the users with the same username
 
         $req->execute($user);
 
@@ -124,7 +124,7 @@ class ModelUser extends Model {
 
                 $bd = self::getDB();
 
-                $req = $bd->prepare('SELECT pseudoUser FROM Utilisateur WHERE idUser = :id'); //Preparation of the selection
+                $req = $bd->prepare('SELECT pseudoUser FROM utilisateur WHERE idUser = :id'); //Preparation of the selection
 
                 $req->execute($user); //Exection of the request
 
@@ -157,7 +157,7 @@ class ModelUser extends Model {
     {
         $bd = self::getDB(); //DB Connection
 
-        $req=$bd->prepare('UPDATE Utilisateur SET mdpUser = :password WHERE idUser = :id'); //Prepare the update the lastname of the target user
+        $req=$bd->prepare('UPDATE utilisateur SET mdpUser = :password WHERE idUser = :id'); //Prepare the update the lastname of the target user
 
         $req->execute($pwd); //Execute the update
 
@@ -173,7 +173,7 @@ class ModelUser extends Model {
     {
         $bd = self::getDB(); //DB Connection
 
-        $req=$bd->prepare('UPDATE Utilisateur SET mailUser = :mail WHERE idUser = :id'); //Prepare the update the mail of the target user
+        $req=$bd->prepare('UPDATE utilisateur SET mailUser = :mail WHERE idUser = :id'); //Prepare the update the mail of the target user
 
         $req->execute($user); //Execute the update
 

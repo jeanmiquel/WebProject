@@ -16,15 +16,17 @@
 
 			$bd = self::getDB(); //Connection
 
-			$req = $bd->prepare('SELECT contenu,pseudoUser FROM Avis A, Utilisateur U WHERE A.idUser = U.idUSer AND idBonbon = :candy'); //Select all the opinions and the username of the person who commented about a candy
+			$req = $bd->prepare('SELECT contenu,pseudoUser FROM avis A, utilisateur U WHERE A.idUser = U.idUSer AND idBonbon = :candy'); //Select all the opinions and the username of the person who commented about a candy
 
 			$req->execute($idCandy); //Execute with the specified idCandy
 
-			$data = $req->fetchAll(); //List result in array
+			$data = $req->fetch(); //List result in array
+
+			$req->closeCursor();
 
 			return $data; //Return the first value of the list
 
-			$req->closeCursor();
+			
 
 		}
 
@@ -37,7 +39,7 @@
 
 			$bd = self::getDB(); //Connection
 
-			$req = $bd->prepare('INSERT INTO Avis VALUES (:user, :candy, :opinion)'); //Insert the new comment in the DB
+			$req = $bd->prepare('INSERT INTO avis VALUES (:user, :candy, :opinion)'); //Insert the new comment in the DB
 
 			$req->execute($newOpinion); //Execute the request with the parameter opinion
 
@@ -52,7 +54,7 @@
 
 			$bd = self::getDB();	//DB Connection
 
-			$req = $bd->prepare('SELECT COUNT(*) FROM Avis WHERE idUser = :idUser AND idBonbon = :idCandy');	//Count how many opinion were posted on this candy by the same user
+			$req = $bd->prepare('SELECT COUNT(*) FROM avis WHERE idUser = :idUser AND idBonbon = :idCandy');	//Count how many opinion were posted on this candy by the same user
 
 			$req->execute($tab);
 

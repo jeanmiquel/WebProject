@@ -21,7 +21,7 @@
 
 			$bd = self::getDB();	//Connection
 
-			$req = $bd->prepare('INSERT INTO Panier (idUser) VALUES (:id)');	//insertion with a NULL value for the purchase date
+			$req = $bd->prepare('INSERT INTO panier (idUser) VALUES (:id)');	//insertion with a NULL value for the purchase date
 
 			$req->execute($user);
 
@@ -38,7 +38,7 @@
 
 			$bd = self::getDB();	//Connection
 
-			$req = $bd->query('SELECT * FROM Panier');	//Select every baskets in the DB
+			$req = $bd->query('SELECT * FROM panier');	//Select every baskets in the DB
 
 			$data = $req->fetchAll();
 
@@ -57,7 +57,7 @@
 
 			$user=array( 'id' => $_COOKIE['id']); //Create the parameter
 
-			$req = $bd->prepare('SELECT COUNT(*) FROM Panier WHERE dateAchat IS NULL AND idUser = :id');	//Prepare the selection of the number
+			$req = $bd->prepare('SELECT COUNT(*) FROM panier WHERE dateAchat IS NULL AND idUser = :id');	//Prepare the selection of the number
 
 			$req->execute($user);	//Execute with the current user
 
@@ -77,7 +77,7 @@
 
 			$bd = self::getDB();	//Connection
 
-			$req = $bd->prepare('UPDATE Panier SET dateAchat = NOW() WHERE idUser = :idUser'); //Modify the "NULL" date of purchase by the current date
+			$req = $bd->prepare('UPDATE panier SET dateAchat = NOW() WHERE idUser = :idUser'); //Modify the "NULL" date of purchase by the current date
 
 			$req->execute($user);
 
@@ -93,7 +93,7 @@
 
 			$bd = self::getDB();	//Connection
 
-			$req = $bd->prepare('DELETE FROM Panier WHERE idUser = :idUser'); //Delete the current basket of the user
+			$req = $bd->prepare('DELETE FROM panier WHERE idUser = :idUser'); //Delete the current basket of the user
 
 			$req->execute($user);
 
@@ -109,7 +109,7 @@
 
 			$bd = self::getDB();	//Connection
 
-			$req = $bd->prepare('SELECT idPanier FROM Panier WHERE idUser = :id AND dateAchat IS NULL'); //Prepare the selection
+			$req = $bd->prepare('SELECT idPanier FROM panier WHERE idUser = :id AND dateAchat IS NULL'); //Prepare the selection
 
 			$req->execute($user);
 
@@ -129,7 +129,7 @@
 
 			$bd = self::getDB();	//Connection
 
-			$req = $bd->prepare('SELECT dateAchat FROM Panier WHERE idPanier = :id'); //Prepare the selection
+			$req = $bd->prepare('SELECT dateAchat FROM panier WHERE idPanier = :id'); //Prepare the selection
 
 			$req->execute($tab);
 
@@ -152,7 +152,7 @@
 
 			$bd = self::getDB(); //Connection
 
-			$req = $bd->prepare('INSERT INTO Acheter VALUES (:idUser, :idBasket, :idCandy, :quantity) ');	//Prepare the insertion in the purchase table in the DB
+			$req = $bd->prepare('INSERT INTO acheter VALUES (:idUser, :idBasket, :idCandy, :quantity) ');	//Prepare the insertion in the purchase table in the DB
 
 			$req->execute($tab); //Execution
 
@@ -171,7 +171,7 @@
 
 				$bd = self::getDB(); //Connection
 
-				$req = $bd->prepare('UPDATE Acheter SET quantite = quantite + :quantity WHERE idPanier = :idBasket AND idBonbon = :idCandy AND idUser = :idUser');	//Prepare the update in the purchase table in the DB
+				$req = $bd->prepare('UPDATE acheter SET quantite = quantite + :quantity WHERE idPanier = :idBasket AND idBonbon = :idCandy AND idUser = :idUser');	//Prepare the update in the purchase table in the DB
 
 				$req->execute($tab); //Execution
 
@@ -194,7 +194,7 @@
 
 			$bd = self::getDB(); //Connection
 
-			$req = $bd->prepare('SELECT * FROM Acheter WHERE idUser = :idUser'); //Prepare the selection of all information about the current user basket purchases
+			$req = $bd->prepare('SELECT * FROM acheter WHERE idUser = :idUser'); //Prepare the selection of all information about the current user basket purchases
 
 			$req->execute($user);
 
@@ -211,7 +211,7 @@
 
 			$bd = self::getDB(); //Connection
 
-			$req = $bd->prepare('SELECT * FROM Acheter WHERE idPanier = :id'); //Prepare the selection of all information about the current basket purchases
+			$req = $bd->prepare('SELECT * FROM acheter WHERE idPanier = :id'); //Prepare the selection of all information about the current basket purchases
 
 			$req->execute($basket);
 
@@ -236,7 +236,7 @@
 
 			$bd = self::getDB(); //Connection
 
-			$req = $bd->prepare('SELECT COUNT(*) FROM Acheter WHERE  idBonbon = :idCandy AND idPanier = :idBasket AND idUser = :idUser' ); //Prepare the selection of all information about the current basket purchases
+			$req = $bd->prepare('SELECT COUNT(*) FROM acheter WHERE  idBonbon = :idCandy AND idPanier = :idBasket AND idUser = :idUser' ); //Prepare the selection of all information about the current basket purchases
 
 			$req->execute($tab);
 

@@ -231,7 +231,7 @@ switch($action) {
             $data=ModelUser::connection($tab); //Call the model function to connect the user
 
 
-            if ($data['mdpUser'] == $password) //If the resulting password is the same than the input
+            if ($data[4] == $password) //If the resulting password is the same than the input
 
             {
 
