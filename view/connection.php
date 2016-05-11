@@ -3,29 +3,8 @@
 <!--CONNECTION PAGE-->
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-
-  <head>
     
     <?php include ('header.php'); ?>
-
-    <title>Connection</title>
-
-  </head>
-
-
-  <body>
-
-
-    <h1>Achat de friandises en ligne</h1>
-
-
-    <!--Navigation Bar-->
-
-    <?php include ("nav.php"); ?>
-
 
 
     <!--Connection formular-->

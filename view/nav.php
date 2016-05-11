@@ -21,6 +21,8 @@
 
         <?php
 
+            require_once ('../model/ModelBasket.php');
+
 
 
             //If the user is connected, show the Profile link to redirect on his own profile page
@@ -78,6 +80,26 @@
                     </ul>";
 
 
+                $nbBaskets = ModelBasket::NbrBaskets(); //Take the number of non purchased baskets of the current user
+
+
+                    //If the user has only one basket, he cand check it
+                 if ($nbBaskets[0] == 1)
+                {
+                    echo "<form class='form-inline' method='POST' action='../controller/ControllerBasket.php'>
+                          <button type='submit' class='btn btn-default'>Check your basket</button>
+                          <input type='hidden' value='showBasket' name='action'>
+                          </form>";
+                }
+                else {
+                    echo "<form class='form-inline' method='POST' action='../controller/ControllerBasket.php'>
+                          <button type='submit' class='btn btn-default'>Create a basket</button>
+                          <input type='hidden' value='addBasket' name='action'>
+                          </form>";
+                }
+
+
+
                 //If the user is an administrator, show the settings dropdown button
                 if ($_COOKIE['status']=='admin')
                 {
@@ -87,10 +109,10 @@
                             <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Settings <span class='caret'></span></a>
                             <ul class='dropdown-menu'>
                                 <li><a href='../view/newCandy.php'>Add a candy</a></li>
-                                <li><a href='../view/allProfiles.php'>All profiles</a></li>
-                                <li><a href='#'>Something else here</a></li>
                                 <li role='separator' class='divider'></li>
-                                <li><a href='#'>Separated link</a></li>
+                                <li><a href='../view/allProfiles.php'>All profiles</a></li>
+                                <li role='separator' class='divider'></li>
+                                <li><a href='../view/allBaskets.php'>Baskets history</a></li>
                             </ul>
                         </li>
                     </ul>";
@@ -106,6 +128,8 @@
                     </ul>";
 
             }
+
+
 
         
         ?>

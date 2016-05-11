@@ -27,9 +27,7 @@
 
 			$req = $bd->prepare('SELECT contenu,pseudoUser FROM Avis A, Utilisateur U WHERE A.idUser = U.idUSer AND idBonbon = :candy'); //Select all the opinions and the username of the person who commented about a candy
 
-			$req->bindParam(':candy',$idCandy['candy'], PDO::PARAM_INT); //settings of the parameter for the execution od the request
-
-			$req->execute(); //Execute with the specified idCandy
+			$req->execute($idCandy); //Execute with the specified idCandy
 
 			$data = $req->fetchAll(); //List result in array
 
@@ -53,6 +51,23 @@
 			$req->execute($newOpinion); //Execute the request with the parameter opinion
 
 			$req->closeCursor();
+		}
+
+		/**
+		*Param: ID of a user
+		*Return: The number of opinions that the user posted for the specified candy
+		**/
+		public static function checkOpinion($tab){
+
+			$bd = self::getDB();	//DB Connection
+
+			$req = $bd->prepare('SELECT COUNT(*) FROM Avis WHERE idUser = :idUser AND idBonbon = :idCandy');	//Count how many opinion were posted on this candy by the same user
+
+			$req->execute($tab);
+
+			$data = $req->fetch();
+
+			return $data;
 		}
 
 

@@ -41,20 +41,31 @@
 
 	        {
 
-
+	        	if (ModelCandy::checkCandyname($name)[0] == 0)	//If the candy name isn't already taken
+	        	{
 	    		 
-	             //Creation of an array parameter for the call 'AddCandy'
-	            $tab=array(
-	                'name' => $name,
-	                'flavor' => $flavor,
-	                'brand' => $brand,
-	                'price' => $price,
-	                'descr' => $descr
-	            );
+		             //Creation of an array parameter for the call 'AddCandy'
+		            $tab=array(
+		                'name' => $name,
+		                'flavor' => $flavor,
+		                'brand' => $brand,
+		                'price' => $price,
+		                'descr' => $descr
+		            );
 
-	            ModelCandy::addCandy($tab); //Call the model function to create a new candy
+		            ModelCandy::addCandy($tab); //Call the model function to create a new candy
 
-	            header('Location: ../view/index.php'); //Redirect on the index page
+		            echo "<script>alert(\"The new candy is added\")</script>";   //Tell the admin that the admin is added
+
+		            include '../view/index.php'; //Redirect on the index page
+		        }
+		        else
+		        {
+		        	 $message='<p>The candy name is already taken, please try another one</p>
+                	<p>Click <a href="../view/newCandy.php">here</a> to come back</p>';
+
+                	echo $message;
+		        }
 
 	        }
 
@@ -67,6 +78,30 @@
 	    	}
 
 	    break;
+
+
+
+	    #################################################################################
+   	 	######################### DELETE CASE ###########################################
+    	#################################################################################
+
+
+       	//If the action is to delete the candy from the DB
+	   	case 'deleteCandy':
+
+	   		$idCandy = $_POST['idCandy'];	//Get the value ID of the candy we want to delete
+
+	   		$candy=array(			//Create the array parameter for the model function
+	   			'id' => $idCandy
+	   			);
+
+	   		ModelCandy::deleteCandy($candy);	//Call the model function to delete the specified candy from the DB
+
+	   		echo "<script>alert(\"Candy deleted\")</script>";   //Tell the admin that the candy is deleted
+
+	   		include '../view/index.php';
+
+	   	break;
 
 
 

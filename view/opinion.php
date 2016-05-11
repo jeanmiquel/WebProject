@@ -3,30 +3,11 @@
 <!--PAGE WITH ALL THE OPINIONS ABOUT ONE CANDY-->
 
 
-
-<!DOCTYPE html>
-<html lang="en">
-
-
-    <head>
         
     <?php include ('header.php'); ?>
 
-        <title>Test Project</title>
 
-    </head>
-                 
-
-		    
-    <body>
-
-
-        <h1>Achat de friandises en ligne</h1> 
-
-
-        <!-- Navigation Bar-->
-
-		<?php include ("nav.php"); ?>
+       <!--OPINION CATALOG-->
 
 		<div class="catalogue">
         <table class="table table-bordered">
@@ -63,7 +44,7 @@
 				
 				$user = $_COOKIE['id'];
 
-		    	echo $_COOKIE['pseudo'],
+		    	echo 
 		    	"<form class= 'navbar-form navbar-left' action='../controller/ControllerOpinion.php' method='POST'>
 		            <input type='hidden' value='addOpinion' name='action'>
 		            <input type='hidden' value=",$candy," name='candy'>
@@ -75,11 +56,10 @@
 		        </form>";
 		    }
 
-	
-		include ('footer.php');
-
 		?>
 
     </body>
+
+    <?php include ('footer.php'); ?>
 
 </html>

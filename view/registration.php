@@ -3,25 +3,8 @@
 <!--REGISTRATION PAGE TO ADD A NEW USER-->
 
 
-<!DOCTYPE html>
-<html lang="en">
-
 	<?php include ('header.php'); ?>
 
-	<head>
-
-    	<title>Registration</title>
-
-	</head>
-
-	<body>
-    
-  	 <h1>Achat de friandises en ligne</h1>
-  
-
-    <!-- Navigation Bar-->
-
-    <?php include ("nav.php"); ?>
 
 
 	<h1 style="margin-left: -220px;">Registration</h1>

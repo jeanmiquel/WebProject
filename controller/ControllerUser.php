@@ -29,30 +29,42 @@ switch($action) {
 
 
         //Creation of variable for all the inputs from the formular
-        $pseudo= $_POST['pseudo'];
+        $pseudo= htmlspecialchars($_POST['pseudo']);
         $lastname = $_POST['lastname'];
         $firstname = $_POST['firstname'];
         $mail= $_POST['mail'];
-        $password = $_POST['password'];
+        $password = sha1($_POST['password']);
 
 
         //If all the lines in the formular are filled
         if($pseudo != NULL AND $password != NULL AND $lastname != NULL AND $mail != NULL AND $firstname != NULL AND $mail == $_POST['mail_confirm'])
-
         {
+
+            if (ModelUser::checkUsername($pseudo)[0] == 0)  //If the username isn't already taken
+            {
     		 
-             //Creation of an array parameter for the call 'AddUser'
-            $tab=array(
-                'lastname' => $lastname,
-                'firstname' => $firstname,
-                'pseudo' => $pseudo,
-                'password' => $mdp,
-                'mail' => $mail
-            );
+                 //Creation of an array parameter for the call 'AddUser'
+                $tab=array(
+                    'lastname' => $lastname,
+                    'firstname' => $firstname,
+                    'pseudo' => $pseudo,
+                    'password' => $password,
+                    'mail' => $mail
+                );
 
-            ModelUser::AddUser($tab); //Call the model function to create a new user
+                ModelUser::AddUser($tab); //Call the model function to create a new user
 
-            header('Location: ../view/index.php'); //Redirect on the index page
+                echo "<script>alert(\"Registration done, click on OK then log yourself in\")</script>";   //Tell the user that the registration is OK and ask him to log in
+
+                include '../view/connection.php'; //Redirect on the connection page
+            }
+            else
+            {
+                $message='<p>Username already taken, please try another one</p>
+                <p>Click <a href="../view/registration.php">here</a> to come back</p>';
+
+                echo $message;
+            }
 
         }
 
@@ -67,33 +79,39 @@ switch($action) {
     break;
 
 
-
-
     #################################################################################
-    ######################### MODIFICATION CASE #####################################
+    ######################### DELETE CASE ###########################################
     #################################################################################
 
+    //If the action is to delete the user
+    case 'deleteUser':
 
-    //If the action to modify a user
-    case 'modification':
+        $idUser = $_POST['idUser']; //Get the post value of the user from the form
 
-
-        //If the user input a new name
-        if(isset($_POST["name"]))
-        {
-            //Get the value
-           $name = $_POST["name"];
-
-           $user=array( //Create the array parameter for the model request
-            'name' => $name,
-            'id' => $_COOKIE['id']
+        $user=array(            //Create array parameter for the model function to delete
+            'id' => $idUser
             );
 
-           ModelUser::setName($user); //Modify it in the DB
+        ModelUser::deleteUser($user);   //Call the function from the model
 
-        }
+        echo "<script>alert(\"User deleted\")</script>";   //Tell the user that the user is deleted
 
-        //If the user input a new email address
+        include '../view/allProfiles.php'; //Redirect to the profiles
+
+    break;
+
+
+
+
+    #################################################################################
+    ######################### MAIL MODIFICATION CASE ################################
+    #################################################################################
+
+
+    //If the action is to modify mail
+    case 'modificationMail':
+
+    //If the user input a new email address
         if(isset($_POST["mail"]))
         {
             //Get the value
@@ -105,13 +123,68 @@ switch($action) {
             );
 
            ModelUser::setMail($user);   //Modify it in the DB
+
+           header('Location: ../controller/ControllerProfile.php');
+        }
+        else //If there's no input
+        {
+            $message='<p>Please fill all the lines during your next try</p>
+            <p>Click <a href="../view/pwdModif.php">here</a> to come back</p>';
+
+            echo $message;
         }
 
+    break;
+
         
-        header('Location: ../controller/disconnection.php');
 
 
+    #################################################################################
+    ######################### PSWRD MODIFICATION CASE ###############################
+    #################################################################################
 
+
+    //If the action is to modify password
+    case 'modificationPassword':
+
+
+        //If the user input a new pwd and the confirm
+        if(isset($_POST["password"]) and isset($_POST["confirm"]))
+        {
+            //Get the value
+           $password = $_POST["password"];
+           $confirm = $_POST["confirm"];
+
+           if ($password == $confirm)
+           {
+               $pwd=array( //Create the array parameter for the model request
+                'password' => $password,
+                'id' => $_COOKIE['id']
+                );
+
+               ModelUser::setPwd($pwd); //Modify it in the DB
+
+               header('Location: ../controller/ControllerProfile.php');
+           }
+           else //If the confirm isnt equal to the password
+            {
+                $message='<p>The password confirm doesnt match</p>
+                <p>Click <a href="../view/pwdModif.php">here</a> to come back</p>';
+
+                echo $message;
+            }
+        }
+        else //If there's an input missing
+        {
+            $message='<p>Please fill all the lines during your next try</p>
+            <p>Click <a href="../view/pwdModif.php">here</a> to come back</p>';
+
+            echo $message;
+        }
+    break;
+
+        
+        
 
     #################################################################################
     ######################### CONNECTION CASE #######################################
@@ -125,11 +198,11 @@ switch($action) {
         //Check there's a pseudo and password input then create a variable for each one
         if(isset($_POST["pseudo"]))
         {
-           $pseudo = $_POST["pseudo"];
+           $pseudo = htmlspecialchars($_POST["pseudo"]);
         }
         if(isset($_POST["password"]))
         {
-           $password = $_POST["password"];
+           $password = sha1($_POST["password"]);
         }
 
 

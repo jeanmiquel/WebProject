@@ -4,65 +4,64 @@
 <!--CATALOG OF EVERY USERS REGISTRED IN THE SITE-->
 
 
+    <?php 
 
-<!DOCTYPE html>
-<html lang="en">
+    if (isset($_COOKIE['pseudo']))    //URL PROTECTION !! TO PREVENT UNLOGGED PERSON TO COPY/PASTE THE URL AND ACCESS THIS PAGE
 
-    <?php require_once ('../model/ModelUser.php'); ?>
-
-    <head>
-        
-    <?php include ('header.php'); ?>
-
-        <title>Test Project</title>
-
-    </head>
-                 
-
-		    
-    <body>
+    {
 
 
-        <h1>Achat de friandises en ligne</h1> 
+            require_once ('../model/ModelUser.php');
+                
+            include ('header.php'); ?>
+
+                <!--CATALOG-->
+
+        		<div class="catalogue">
+                    <table class="table table-bordered">
+
+                    <tr>
+                        <th>USERNAME</th>
+                        <th>FIRST NAME</th>
+                        <th>LAST NAME</th>
+                        <th>E-MAIL ADDRESS</th>
+                        <th>STATUS</th></tr>
 
 
-        <!-- Navigation Bar-->
+            		<?php 
 
-		<?php include ("nav.php"); ?>
+                        $profiles = ModelUser::getProfiles(); //Call the function to return the informations about all DB user
 
-		<div class="catalogue">
-            <table class="table table-bordered">
+                        foreach($profiles as $profile)  //For each user, print each piece of information
+                        {
+                                echo "<tr>
+                    			<td>",$profile['pseudoUser'],"</td>
+                    			<td>",$profile['prenomUser'],"</td>
+                                <td>",$profile['nomUser'],"</td>
+                                <td>",$profile['mailUser'],"</td>
+                                <td>",$profile['statusUser'],"</td>
+                                <td>
+                                    <form action='../controller/ControllerUser.php' method='POST' class='formbutton'>
+                                        <input type='hidden' value='deleteUser' name='action'>
+                                        <button type='submit' name='idUser' value=",$profile['idUser']," class='btn btn-default'>Delete</button>
+                                    </form>
+                                </td>";
+                             
+                        }
 
-            <tr>
-                <th>USERNAME</th>
-                <th>FIRST NAME</th>
-                <th>LAST NAME</th>
-                <th>E-MAIL ADDRESS</th>
-                <th>STATUS</th></tr>
+                	?>
 
+                    </table>
+                </div>
 
-    		<?php 
+                <?php include ('footer.php'); ?>
 
-                $profiles = ModelUser::getProfiles(); //Call the function to return the informations about all DB user
+            </body>
 
-                foreach($profiles as $profile)  //For each user, print each piece of information
-                {
-                        echo "<tr>
-            			<td>",$profile['pseudoUser'],"</td>
-            			<td>",$profile['prenomUser'],"</td>
-                        <td>",$profile['nomUser'],"</td>
-                        <td>",$profile['mailUser'],"</td>
-                        <td>",$profile['statusUser'],"</td>
-            		  	</tr>"; 
-                }
+        </html>
 
-        	?>
+    <?php
 
-            </table>
-        </div>
+}
 
-        <?php include ('footer.php'); ?>
-
-    </body>
-
-</html>
+?>

@@ -13,6 +13,7 @@ setcookie("id","",-1, "/WebProject-masterV1/");
 setcookie("mail","",-1, "/WebProject-masterV1/");
 setcookie("lastname","",-1, "/WebProject-masterV1/");
 setcookie("firstname","",-1, "/WebProject-masterV1/");
+setcookie("status","",-1, "/WebProject-masterV1/");
 
 header('Location: ../view/index.php');
 

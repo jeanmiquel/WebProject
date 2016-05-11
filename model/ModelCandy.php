@@ -34,6 +34,24 @@
 
 		}
 
+
+		/**
+		*Param: array containing the id of the candy we want to remove
+		*Return: Nothing
+		**/
+		public static function deleteCandy($candy) {
+
+			$bd = self::getDB(); //Connection
+
+			$req = $bd->prepare('DELETE FROM Bonbon WHERE idBonbon = :id');	//Delete the candy from the DB
+
+			$req->execute($candy);
+
+			$req->closeCursor();
+
+		}
+
+
 		/**
 		* Param: None
 		* Return: all the candies in the DB
@@ -51,6 +69,25 @@
 			$req->closeCursor();
 
 		}
+
+		/**
+	    *Param: the name of the candy
+	    *Return: the number of DB candies with the same name than the candy in parameter
+	    **/
+	    public static function checkCandyname($name)
+	    {
+	        $bd = self::getDB(); //Connection
+
+	        $user=array( 'name' => $name ); //Array parameter for the query
+
+	        $req=$bd->prepare('SELECT COUNT(*) FROM Bonbon WHERE nomBonbon = :name'); //Count the users with the same username
+
+	        $req->execute($user);
+
+	        $data = $req->fetch();  //Array with the result
+
+	        return $data;
+	    }
 
 
 		/**
@@ -132,7 +169,7 @@
 				$req->execute($tab); //Exection of the request
 				$data = $req->fetch();
 
-				echo $data['nomBonbon']; //Print
+				return $data;
 
 				$req->closeCursor(); 
 
@@ -160,7 +197,7 @@
 				$req->execute($tab); //Execution of the request
 				$data = $req->fetch();
 
-				echo $data['saveur']; //Print
+				return $data;
 
 				$req->closeCursor(); 
 
@@ -188,7 +225,7 @@
 				$req->execute($tab); //Exection of the request
 				$data = $req->fetch();
 
-				echo $data['marque']; //Print
+				return $data;
 
 				$req->closeCursor(); 
 
@@ -214,9 +251,10 @@
 				$req = $bd->prepare('SELECT prixUnit FROM Bonbon WHERE idBonbon = :id'); //Preparation of the selection
 
 				$req->execute($tab); //Exection of the request
+
 				$data = $req->fetch();
 
-				echo $data['prixUnit']; //Print
+				return $data;
 
 				$req->closeCursor(); 
 
@@ -244,7 +282,7 @@
 				$req->execute($tab); //Exection of the request
 				$data = $req->fetch();
 
-				echo $data['description']; //Print
+				return $data;
 
 				$req->closeCursor(); 
 

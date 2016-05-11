@@ -40,7 +40,7 @@ require_once '../model/ModelOpinion.php';
 
     		$opinions = ModelOpinion::getAllOpinions($tab); //Load all the opinions from the model function
 
-            
+            include ('../view/opinion.php'); //Show the opinion page with the corresponding cases return 
 
     	break;
 
@@ -59,26 +59,52 @@ require_once '../model/ModelOpinion.php';
 			{
 				$opinion = $_POST["opinion"];
                 $candy = $_POST["candy"];
-			}	
 
-			$tab=array(      //Create the array parameter for the model request
-        		'opinion' => $opinion,
-                'user' => $_POST['user'],
-                'candy' => $_POST['candy']
+                $check=array(
+                    'idUser' => $_POST['user'],
+                    'idCandy' => $_POST['candy']
+                    );
+	
 
-    		);
+		         if (ModelOpinion::checkOpinion($check)[0] == 0)  //If the user hasn't alreayd posted a comment for this candy
+                {
+                    $tab=array(      //Create the array parameter for the model request addOPinion
+                    'opinion' => $opinion,
+                    'user' => $_POST['user'],
+                    'candy' => $_POST['candy']
+                    );
 
-    		$newOpinion = ModelOpinion::addOpinion($tab); //Add the opinions from the model function
+                    $idCandy=array(   //Create array parameter for the getAllOpinion
+                        'candy' => $_POST['candy']
+                        );
 
-            $opinions = ModelOpinion::getAllOpinions($tab); //Reload all the opinions
+                    ModelOpinion::addOpinion($tab); //Add the opinion on the DB
 
-            
+                    $opinions=ModelOpinion::getAllOpinions($idCandy); //Reload all the opinions fir the candy
+
+                    include '../view/opinion.php';  //Show the page of the opinions
+                }
+                else //Tell him he can't post again and redirect him to the index
+                {
+                     $message='<p>You have already posted an opinion for this candy</p>
+                    <p>Click <a href="../view/index.php">here</a> to come back to the catalog</p>';
+
+                    echo $message;
+                }
+            }
+            else //Tell him the comment is missing and redirect him
+            {
+                 $message='<p>Comment missing</p>
+                    <p>Click <a href="../view/index.php">here</a> to come back to the catalog</p>';
+
+                    echo $message;
+            }
         break;
 
 
     }
 
-    include ('../view/opinion.php'); //Show the opinion page with the corresponding cases return 
+    
 
     
 

@@ -2,30 +2,8 @@
 
 <!--THE PROFILE OF THE CONNECTED USER-->
 
-
-<!DOCTYPE html>
-<html lang="en">
-
-
-    <head>
         
     <?php include ('header.php'); ?>
-
-        <title>Test Project</title>
-
-    </head>
-                 
-
-		    
-    <body>
-
-
-        <h1>Achat de friandises en ligne</h1> 
-
-
-        <!-- Navigation Bar-->
-
-		<?php include ("nav.php"); ?>
 
 
         <!--Informations-->
@@ -58,13 +36,12 @@
         </div>
 
 
-        <!--Button to modify the email address or the lastname-->
+        <!--Button to modify the email address or the password-->
 
-        <form action='../view/userModification.php'>
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Modify</button>
+        <div align="center">
+        <a type="button" class="btn btn-default" href="../view/pwdModif.php">Modify Password</a>
+        <a type="button" class="btn btn-default" href="../view/mailModif.php">Modify E-mail address</a>
         </div>
-        </form>
 
         <?php include ('footer.php'); ?>
 
