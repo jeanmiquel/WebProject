@@ -1,21 +1,11 @@
 <?php
 
 
-class ModelUser {
+require_once 'Model.php';
+
+class ModelUser extends Model {
 
 
-    /**
-    *Param: None
-    *Return: The connection with the DB
-    **/
-    public static function getDB() {
-
-        $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-        $bd = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '',   $pdo_options); //Connection BD
-
-        return $bd;
-
-    }
 
 
     /**

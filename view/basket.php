@@ -57,7 +57,7 @@
 
         <!--Button to commit the basket and purchase the candies-->
 
-        <div align='center'>
+        <span align='center'>
             <td>
             <form action='../controller/ControllerBasket.php' method='POST'>
                 <input type='hidden' name='action' value='validBasket'>
@@ -70,7 +70,7 @@
                 <button type="submit" class="btn btn-default">Cancel</button>
             </form>
             </td>
-        </div>
+        </span>
 
 
         <?php include ('footer.php'); ?>

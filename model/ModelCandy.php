@@ -1,21 +1,10 @@
 <?php
 
 
-	class ModelCandy {
+	require_once 'Model.php';
 
+	class ModelCandy extends Model{
 
-		/**
-		* Param: None
-		* Return: variable containing the DB Connection
-		**/
-		public static function getDB() {
-
-			$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION; //About errors
-			$bd = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '',   $pdo_options); //Connection BD
-
-			return $bd;
-
-		}
 
 
 		/**
