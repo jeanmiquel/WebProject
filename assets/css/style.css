@@ -27,6 +27,17 @@ footer
 	margin : 30px;
 }
 
+#formulaire
+{
+	text-align: right;
+}
+
+#formulaire form 
+{
+    display:inline-block
+}
+
+
 .option
 {
 	padding-right: 20px;

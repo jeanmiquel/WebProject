@@ -11,8 +11,7 @@ class Model {
 	    **/
 	    public static function getDB() {
 
-	        $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-	        $bd = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '',   $pdo_options); //Connection BD
+	       $bd = new PDO("mysql:host=127.2.228.2:3306;dbname=sweetcandy;charset=UTF8", "adminaj9VanD", "q56JSrNMK1u3"); //Connection BD
 
 	        return $bd;
 

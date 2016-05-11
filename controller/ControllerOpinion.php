@@ -60,7 +60,7 @@ require_once '../model/ModelOpinion.php';
 				$opinion = $_POST["opinion"];
                 $candy = $_POST["candy"];
 
-                $check=array(
+                $check=array(   
                     'idUser' => $_POST['user'],
                     'idCandy' => $_POST['candy']
                     );
@@ -79,6 +79,9 @@ require_once '../model/ModelOpinion.php';
                         );
 
                     ModelOpinion::addOpinion($tab); //Add the opinion on the DB
+
+                    echo "<script>alert(\"Opinion added\")</script>"; //Tell the user that the opinion is added
+
 
                     $opinions=ModelOpinion::getAllOpinions($idCandy); //Reload all the opinions fir the candy
 
@@ -102,6 +105,41 @@ require_once '../model/ModelOpinion.php';
         break;
 
 
+        #################################################################################
+        ######################### DELETE OPINION CASE ###################################
+        #################################################################################
+
+        //If the action is to delete an opinion
+        case 'deleteOpinion':
+
+
+            $check=array(
+                    'idUser' => $_POST['user'],
+                    'idCandy' => $_POST['candy']
+                    );
+
+            if (ModelOpinion::checkOpinion($check)[0] == 1)  //If the user has alreayd posted a comment for this candy
+            {       
+
+                $idCandy = array( 'candy' => $_POST['candy'] );   //Array parameter to reload every opinions
+
+                ModelOpinion::deleteOpinion($check);    //Delete the opinion
+
+                echo "<script>alert(\"Opinion deleted\")</script>"; //Tell the user that the opinion is deleted
+
+                $opinions=ModelOpinion::getAllOpinions($idCandy); //Reload all the opinions for the candy
+
+                include '../view/opinion.php';
+            }
+            else
+            {
+                 $message='<p>There s no opinion to delete</p>
+                    <p>Click <a href="../view/index.php">here</a> to come back to the catalog</p>';
+
+                    echo $message;
+            }
+
+        break;
     }
 
     

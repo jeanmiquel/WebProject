@@ -63,6 +63,21 @@
 			return $data;
 		}
 
+		/**
+		*Param: ID of the user and the candy
+		*Return: Nothing, just delete the comment of this user for this candy
+		**/
+		public static function deleteOpinion($tab)
+		{
+			$bd = self::getDB();	//DB Connection
+
+			$req = $bd->prepare('DELETE FROM avis WHERE idUser = :idUser AND idBonbon = :idCandy');	//Delete the comment from the DB
+
+			$req->execute($tab);
+
+			$req->closeCursor();
+		}
+
 
 	}
 

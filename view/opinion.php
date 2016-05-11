@@ -24,8 +24,8 @@
 
 		{
     		echo "<tr>
-    			<td>",$opinion['pseudoUser'],"</td>
-    			<td>",$opinion['contenu'],"</td>
+    			<td>",$opinion[1],"</td>
+    			<td>",$opinion[0],"</td>
     		  	</tr>";
     	}  
 
@@ -45,15 +45,21 @@
 				$user = $_COOKIE['id'];
 
 		    	echo 
-		    	"<form class= 'navbar-form navbar-left' action='../controller/ControllerOpinion.php' method='POST'>
-		            <input type='hidden' value='addOpinion' name='action'>
-		            <input type='hidden' value=",$candy," name='candy'>
-		            <input type='hidden' value=",$user," name='user'>
-		            <div class='form-group'>
-		                <input type='text' name='opinion' id='opinion' class='form-control' placeholder='Comment here...'>
-		            </div>
-		            <button type='submit' class='btn btn-default' >Add your opinion</button>
-		        </form>";
+		    	"<div id='opButton'>
+			    	<form class= 'navbar-form navbar-left' action='../controller/ControllerOpinion.php' method='POST'>
+			            <input type='hidden' value='addOpinion' name='action'>
+			            <input type='hidden' value=",$candy," name='candy'>
+			            <input type='hidden' value=",$user," name='user'>
+			            <input type='text' name='opinion' id='opinion' class='form-control' placeholder='Comment here...'>
+			            <button type='submit' class='btn btn-default' >Add your opinion</button>
+			   		</form>
+			   		<form class= 'navbar-form navbar-left' action='../controller/ControllerOpinion.php' method='POST'>
+			   			<input type='hidden' value='deleteOpinion' name='action'>
+			            <input type='hidden' value=",$candy," name='candy'>
+			            <input type='hidden' value=",$user," name='user'>
+			   			<button type='submit' class='btn btn-default'>Delete your opinion</button>
+			        </form>
+			    </div>";
 		    }
 
 		?>
