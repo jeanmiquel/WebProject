@@ -60,7 +60,7 @@ require_once '../model/ModelOpinion.php';
 				$opinion = $_POST["opinion"];
                 $candy = $_POST["candy"];
 
-                $check=array(   
+                $check=array(
                     'idUser' => $_POST['user'],
                     'idCandy' => $_POST['candy']
                     );
@@ -82,7 +82,6 @@ require_once '../model/ModelOpinion.php';
 
                     echo "<script>alert(\"Opinion added\")</script>"; //Tell the user that the opinion is added
 
-
                     $opinions=ModelOpinion::getAllOpinions($idCandy); //Reload all the opinions fir the candy
 
                     include '../view/opinion.php';  //Show the page of the opinions
@@ -103,6 +102,8 @@ require_once '../model/ModelOpinion.php';
                     echo $message;
             }
         break;
+
+
 
 
         #################################################################################
@@ -140,6 +141,8 @@ require_once '../model/ModelOpinion.php';
             }
 
         break;
+
+
     }
 
     

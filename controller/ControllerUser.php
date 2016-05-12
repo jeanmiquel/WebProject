@@ -231,18 +231,18 @@ switch($action) {
             $data=ModelUser::connection($tab); //Call the model function to connect the user
 
 
-            if ($data[4] == $password) //If the resulting password is the same than the input
+            if ($data['mdpUser'] == $password) //If the resulting password is the same than the input
 
             {
 
                 //Creation of the user cookie with the received values from the model
                 $expire = 3600*24*30;
-                setcookie("pseudo",$data[3],time()+ $expire, "/WebProject/");
-                setcookie("id",$data[0],time()+ $expire, "/WebProject/");
-                setcookie("mail",$data[5],time()+ $expire, "/WebProject/");
-                setcookie("lastname",$data[1],time()+ $expire, "/WebProject/");
-                setcookie("firstname",$data[2],time()+ $expire, "/WebProject/");
-                setcookie("status",$data[6],time()+ $expire, "/WebProject/");
+                setcookie("pseudo",$data[3],time()+ $expire, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
+                setcookie("id",$data[0],time()+ $expire, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
+                setcookie("mail",$data[5],time()+ $expire, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
+                setcookie("lastname",$data[1],time()+ $expire, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
+                setcookie("firstname",$data[2],time()+ $expire, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
+                setcookie("status",$data[6],time()+ $expire, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
 
                 header('Location: ../view/index.php');
 

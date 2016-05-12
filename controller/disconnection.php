@@ -7,13 +7,13 @@
 
 //Update the time value of all the cookies and set them to a negative value to delete them
 
-setcookie("pseudo",NULL,-1, "/WebProject/");
-setcookie("password","",-1, "/WebProject/");
-setcookie("id","",-1, "/WebProject/");
-setcookie("mail","",-1, "/WebProject/");
-setcookie("lastname","",-1, "/WebProject/");
-setcookie("firstname","",-1, "/WebProject/");
-setcookie("status","",-1, "/WebProject/");
+setcookie("pseudo",NULL,-1, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
+setcookie("password","",-1, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
+setcookie("id","",-1, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
+setcookie("mail","",-1, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
+setcookie("lastname","",-1, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
+setcookie("firstname","",-1, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
+setcookie("status","",-1, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
 
 header('Location: ../view/index.php');
 
