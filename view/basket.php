@@ -6,6 +6,17 @@
     <?php include ('header.php'); ?>
     
 
+             <!--TOP OF THE PAGE-->
+
+            <!--Big space to avoid navbar to hide the top of the page (in CSS)-->
+
+            <div class="page">
+
+            <div class="global-image">  
+                <h1>Your sweety basket</h1>
+            </div>   
+
+
         <!--Informations-->
 
 		<div class="catalogue">
@@ -57,21 +68,19 @@
 
         <!--Button to commit the basket and purchase the candies-->
 
-        <span align='center'>
-            <td>
+        <div class="basketbutton">
             <form action='../controller/ControllerBasket.php' method='POST'>
                 <input type='hidden' name='action' value='validBasket'>
-                <button type="submit" class="btn btn-default">Purchase</button>
+                <button type="submit" class="btn btn-default navbar-left">Purchase</button>
             </form>
-            </td>
-            <td>
             <form action='../controller/ControllerBasket.php' method='POST'>
                 <input type='hidden' name='action' value='cancelBasket'>
-                <button type="submit" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-default navbar-lefts">Cancel</button>
             </form>
-            </td>
-        </span>
+        </div>
 
+
+        </div>  <!--End of the page div-->
 
         <?php include ('footer.php'); ?>
 

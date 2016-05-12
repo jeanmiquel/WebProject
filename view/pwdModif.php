@@ -5,7 +5,15 @@
 
     <?php include ('header.php'); ?>
 
-  
+    <!--TOP OF THE PAGE-->
+
+    <!--Big space to avoid navbar to hide the top of the page (in CSS)-->
+
+    <div class="page">
+
+    <div class="global-image">  
+        <h1>Password Modification</h1>
+    </div>   
 
     <!--Modification formular-->
 
@@ -35,7 +43,7 @@
     </div>
   </form>
 
-
+  </div> <!--End of the page div-->
 
   <?php include("footer.php"); ?>
 

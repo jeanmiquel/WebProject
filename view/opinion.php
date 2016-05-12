@@ -7,6 +7,17 @@
     <?php include ('header.php'); ?>
 
 
+        <!--TOP OF THE PAGE-->
+
+        <!--Big space to avoid navbar to hide the top of the page (in CSS)-->
+
+        <div class="page">
+
+        <div class="global-image">  
+            <h1>Sweety comments</h1>
+        </div>   
+
+
        <!--OPINION CATALOG-->
 
 		<div class="catalogue">
@@ -24,8 +35,8 @@
 
 		{
     		echo "<tr>
-    			<td>",$opinion[1],"</td>
-    			<td>",$opinion[0],"</td>
+    			<td>",$opinion['pseudoUser'],"</td>
+    			<td>",$opinion['contenu'],"</td>
     		  	</tr>";
     	}  
 
@@ -64,8 +75,11 @@
 
 		?>
 
-    </body>
+		</div> <!--End of the page div-->
 
-    <?php include ('footer.php'); ?>
+		<?php include 'footer.php'; ?>
+
+
+    </body>
 
 </html>

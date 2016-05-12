@@ -3,7 +3,7 @@
 <!--NAVIGATION BAR-->
 
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -68,9 +68,9 @@
                 <button type="submit" class="btn btn-default">Search</button>
             </form>
 
+
+        <div class="login box">
         <?php
-
-
 
             //If the user is connected, show the Disconnection & Settings button for the user to disconnect 
              if (isset($_COOKIE['pseudo']))
@@ -86,13 +86,13 @@
                     //If the user has only one basket, he cand check it
                  if ($nbBaskets[0] == 1)
                 {
-                    echo "<form class='form-inline' method='POST' action='../controller/ControllerBasket.php'>
+                    echo "<form class='navbar-form navbar-left' method='POST' action='../controller/ControllerBasket.php'>
                           <button type='submit' class='btn btn-default'>Check your basket</button>
                           <input type='hidden' value='showBasket' name='action'>
                           </form>";
                 }
                 else {
-                    echo "<form class='form-inline' method='POST' action='../controller/ControllerBasket.php'>
+                    echo "<form class='navbar-form navbar-left' method='POST' action='../controller/ControllerBasket.php'>
                           <button type='submit' class='btn btn-default'>Create a basket</button>
                           <input type='hidden' value='addBasket' name='action'>
                           </form>";
@@ -104,7 +104,7 @@
                 if ($_COOKIE['status']=='admin')
                 {
                     echo 
-                    "<ul class='nav navbar-nav navbar-right'>
+                    "<ul class='nav navbar-nav navbar-left'>
                         <li class='dropdown'>
                             <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Settings <span class='caret'></span></a>
                             <ul class='dropdown-menu'>
@@ -125,15 +125,13 @@
             {
                 echo "<ul class='nav navbar-nav navbar-right'>
                     <li><a href='../view/connection.php'>Connection</a></li>
+                    <li><a href='../view/registration.php'>Registration</a></li>
                     </ul>";
 
-            }
-
-
-
-        
+            }        
         ?>
             
+        </div>
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

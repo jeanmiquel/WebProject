@@ -1,7 +1,12 @@
 
 <!--FOOTER PART THE WE IMPORT EVERY TIME (CONTAINING BOOTSTRAP JAVASCRIPT IMPORT)-->
 
-<footer>@Copyright Jean Miquel - 2016</footer>
+
+<footer>
+		<p>
+		@Copyright Jean Miquel - 2016
+		</p>
+</footer>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

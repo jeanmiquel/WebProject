@@ -10,10 +10,22 @@
 
     {
                 require_once ('../model/ModelBasket.php');
-                require_once ('../model/Modeluser.php');
+                require_once ('../model/ModelUser.php');
                 require_once ('../model/ModelCandy.php');
 
                 include ('header.php'); ?>
+
+
+                <!--TOP OF THE PAGE-->
+
+                <!--Big space to avoid navbar to hide the top of the page (in CSS)-->
+
+                <div class="page">
+
+                <div class="global-image">  
+                    <h1>Baskets History</h1>
+                </div>   
+
 
 
         		<div class="catalogue">
@@ -58,7 +70,9 @@
                 	?>
 
                     </table>
-                </div>
+                </div>  <!--End of the catalogue div-->
+
+                </div> <!--End of the page div-->
 
              <?php include ('footer.php'); ?>
 

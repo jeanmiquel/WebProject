@@ -6,11 +6,21 @@
 <?php require_once '../model/ModelCandy.php';
 	  require_once '../model/ModelBasket.php'; ?>
 
-        
+   <body>
     <?php include ('header.php'); ?>
 
 
-	    <!--Catalogue-->
+        <!--TOP OF THE PAGE-->
+
+        <!--Big space to avoid navbar to hide the top of the page (in CSS)-->
+
+        <div class="page">
+
+        <div class="global-image">  
+            <h1>Welcome to Candies U Need</h1>
+        </div>   
+
+                <!--Catalogue--> 
 
         <div class="catalogue">
         <table class="table table-bordered">
@@ -33,9 +43,9 @@
         foreach($candies as $candy)	//Call each attribute of the Candy Table and echo them with the possibility to add in the user basket
 	    {
     	   echo "<tr>
-    			<div class='navbar-left'>
-    			<td>",$candy['nomBonbon'],"
-    			 ",$candy['saveur'];"</td>";
+    			<td><div class='navbar-left candy'>"   /**print the name and the flavor**/
+                ,$candy['nomBonbon'],"
+    			 ",$candy['saveur'];
 
 
                 //If the user is logged in, show the quantity input and the "Add to basket" button
@@ -52,7 +62,7 @@
                         if ((ModelBasket::NbCandy($candy['idBonbon'])[0]) == 0)  //If the candy isn't in the basket, a new table 'ACHETER ' will be created
                         {
                             echo
-    	                    "<form method='POST' action='../controller/ControllerBasket.php'>
+                            "<form class='candy' method='POST' action='../controller/ControllerBasket.php'>
     	        				<input type='number' name='quantity' step='1' class='form-control'>
     	        				<input type='hidden' name='action' value='addQuantity'>
     	        				<input type='hidden' name='idCandy' value=",$candy['idBonbon'],">
@@ -62,7 +72,7 @@
                         else //If the candy is already in the basket, add will update the basket
                         {
                             echo
-                            "<form method='POST' action='../controller/ControllerBasket.php'>
+                                "<form class='candy' method='POST' action='../controller/ControllerBasket.php'>
                                 <input type='number' name='quantity' step='1' class='form-control'>
                                 <input type='hidden' name='action' value='modifyQuantity'>
                                 <input type='hidden' name='idCandy' value=",$candy['idBonbon'],">
@@ -78,6 +88,8 @@
     				<button type='submit' name='idCandy' value=",$candy['idBonbon']," class='btn btn-default'>Opinions</button>
     			</form>
     			</div>
+
+                </div>
 
     			</td>
     			<td>",$candy['prixUnit']," €</td>
@@ -98,7 +110,7 @@
                     }
                 }
 
-    		    echo "</tr>";
+    		    echo "</tr>";     /**End of the table line**/
         }
 
         ?>
@@ -106,6 +118,9 @@
    
         </table>
         </div>
+
+
+        </div> <!--End of the page div-->
 
 
         <?php include("footer.php"); ?>

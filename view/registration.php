@@ -6,13 +6,20 @@
 	<?php include ('header.php'); ?>
 
 
+    <!--TOP OF THE PAGE-->
 
-	<h1 style="margin-left: -220px;">Registration</h1>
+    <!--Big space to avoid navbar to hide the top of the page (in CSS)-->
+
+    <div class="page">
+
+    <div class="global-image">  
+        <h1>Sweety registration</h1>
+    </div>   
 
 
     <!--Formular-->
 
-    <form method="POST" action="../controller/ControllerUser.php">
+    <form class ="formregist" method="POST" action="../controller/ControllerUser.php">
 
   		<div class="form-group">
     		<label for="pseudo">Username</label>
@@ -48,6 +55,8 @@
       <input type="hidden" value="registration" name="action">
 
 	</form>
+
+  </div> <!--End of the page div-->
 
 	<?php include("footer.php"); ?>
 

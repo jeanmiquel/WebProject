@@ -20,23 +20,19 @@
 <!-- Bootstrap -->
 <link href="../assets/css/bootstrap.css" rel="stylesheet">
 
+	<div class="header">
 
-	<head>
+		<head>
 
-        <title>The Candies U Need</title>
+        	<title>The Candies U Need</title>
 
-    </head>
-                 
-
-		    
-    <body>
+    	</head>
 
 
-        <h1>Online Candy Shop</h1> 
+        	<!-- Navigation Bar-->
 
+			<?php include ("nav.php"); ?>
 
-        <!-- Navigation Bar-->
-
-		<?php include ("nav.php"); ?>
+	</div>
 
 

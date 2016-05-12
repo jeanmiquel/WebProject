@@ -6,6 +6,16 @@
     <?php include ('header.php'); ?>
 
 
+        <!--TOP OF THE PAGE-->
+
+        <!--Big space to avoid navbar to hide the top of the page (in CSS)-->
+
+        <div class="page">
+
+        <div class="global-image">  
+            <h1>Your sweety profile</h1>
+        </div>   
+
         <!--Informations-->
 
 		<div class="catalogue">
@@ -42,6 +52,8 @@
         <a type="button" class="btn btn-default" href="../view/pwdModif.php">Modify Password</a>
         <a type="button" class="btn btn-default" href="../view/mailModif.php">Modify E-mail address</a>
         </div>
+
+        </div> <!--End of the page div-->
 
         <?php include ('footer.php'); ?>
 

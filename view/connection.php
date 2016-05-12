@@ -2,14 +2,24 @@
 
 <!--CONNECTION PAGE-->
 
-
     
     <?php include ('header.php'); ?>
 
 
+    <!--TOP OF THE PAGE-->
+
+    <!--Big space to avoid navbar to hide the top of the page (in CSS)-->
+
+    <div class="page">
+
+    <div class="global-image">  
+        <h1>Sweety Connection</h1>
+    </div>   
+
+
     <!--Connection formular-->
 
-    <form class="form-horizontal" method='POST' action="../controller/ControllerUser.php">
+    <form class="form-horizontal formconnec" method='POST' action="../controller/ControllerUser.php">
 
       <div class="form-group">
        <label for="username" class="col-sm-2 control-label">Username</label>
@@ -37,6 +47,8 @@
       </div>
     </div>
   </form>
+
+  </div> <!--End of the page div-->
 
 
 

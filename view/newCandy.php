@@ -11,9 +11,15 @@
 
         include ('header.php'); ?>
 
+        <!--TOP OF THE PAGE-->
 
+        <!--Big space to avoid navbar to hide the top of the page (in CSS)-->
 
-      	<h1 style="margin-left: -220px;">Add a new candy</h1>
+        <div class="page">
+
+        <div class="global-image">  
+            <h1>Add a new sweet candy</h1>
+        </div>   
 
 
           <!--Formular-->
@@ -50,6 +56,8 @@
 
 
       	</form>
+
+        </div> <!--End of the page div-->
 
       	<?php include("footer.php"); ?>
 
