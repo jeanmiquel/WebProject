@@ -104,6 +104,14 @@
 
     </div> <!--End of the page div-->
 
+
+    <!--Link to go back to the top of the index-->
+
+    <div class='rightfoot'>
+        <center><a href="../view/index.php">Back to the index</a></center>
+    </div>
+
+
 	<?php include("footer.php"); ?>
         
     </body>

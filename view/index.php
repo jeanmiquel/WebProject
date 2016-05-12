@@ -43,7 +43,7 @@
         foreach($candies as $candy)	//Call each attribute of the Candy Table and echo them with the possibility to add in the user basket
 	    {
     	   echo "<tr>
-    			<td><div class='navbar-left candy'>"   /**print the name and the flavor**/
+    			<td><div class='candy'>"   /**print the name and the flavor**/
                 ,$candy['nomBonbon'],"
     			 ",$candy['saveur'];
 
@@ -83,7 +83,7 @@
                 }
                         // Opinion button, sending value the candy's ID for the Controller
     			echo 
-                "<form action='../controller/ControllerOpinion.php' method='POST'>
+                "<form class ='opbutton' action='../controller/ControllerOpinion.php' method='POST'>
                     <input type='hidden' value='showOpinion' name='action'>
     				<button type='submit' name='idCandy' value=",$candy['idBonbon']," class='btn btn-default'>Opinions</button>
     			</form>
@@ -121,6 +121,12 @@
 
 
         </div> <!--End of the page div-->
+
+        <!--Link to go back to the top of the index-->
+
+        <div class='rightfoot'>
+            <center><a href="../view/index.php">Back to the top</a></center>
+        </div>
 
 
         <?php include("footer.php"); ?>
