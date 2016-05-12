@@ -20,13 +20,11 @@
 
 			$req->execute($idCandy); //Execute with the specified idCandy
 
-			$data = $req->fetch(); //List result in array
-
-			$req->closeCursor();
+			$data = $req->fetchAll(); //List result in array
 
 			return $data; //Return the first value of the list
 
-			
+			$req->closeCursor();
 
 		}
 

@@ -15,7 +15,7 @@
 
 			$bd = self::getDB(); //Connection
 
-			$req = $bd->prepare('INSERT INTO Bonbon (nomBonbon, saveur, marque, prixUnit, description) VALUES (:name, :flavor, :brand, :price, :descr)');
+			$req = $bd->prepare('INSERT INTO bonbon (nomBonbon, saveur, marque, prixUnit, description) VALUES (:name, :flavor, :brand, :price, :descr)');
 
 			$req->execute($candy);
 
@@ -32,7 +32,7 @@
 
 			$bd = self::getDB(); //Connection
 
-			$req = $bd->prepare('DELETE FROM Bonbon WHERE idBonbon = :id');	//Delete the candy from the DB
+			$req = $bd->prepare('DELETE FROM bonbon WHERE idBonbon = :id');	//Delete the candy from the DB
 
 			$req->execute($candy);
 
@@ -49,13 +49,15 @@
 
 			$bd = self::getDB(); //Connection
 
-			$req = $bd->query('SELECT * FROM Bonbon ORDER BY nomBonbon'); //Selection of the total candies counting
+			$req = $bd->query('SELECT * FROM bonbon ORDER BY nomBonbon'); //Selection of the total candies counting
 
 			$data = $req->fetchAll(); //List result in array
 
+			$req->closeCursor();
+
 			return $data; //Return the first value of the list
 
-			$req->closeCursor();
+			
 
 		}
 
@@ -69,7 +71,7 @@
 
 	        $user=array( 'name' => $name ); //Array parameter for the query
 
-	        $req=$bd->prepare('SELECT COUNT(*) FROM Bonbon WHERE nomBonbon = :name'); //Count the users with the same username
+	        $req=$bd->prepare('SELECT COUNT(*) FROM bonbon WHERE nomBonbon = :name'); //Count the users with the same username
 
 	        $req->execute($user);
 
@@ -87,7 +89,7 @@
 
 			$bd = self::getDB(); //Conneciton
 
-			$req = $bd->prepare('SELECT * FROM Bonbon WHERE nomBonbon LIKE "%":name"%" '); //Prepare the selection
+			$req = $bd->prepare('SELECT * FROM bonbon WHERE nomBonbon LIKE "%":name"%" '); //Prepare the selection
 
 			$req->execute($search); //Execution of the request
 
@@ -106,7 +108,7 @@
 
 			$bd = self::getDB(); //Connection
 
-			$req = $bd->prepare('SELECT * FROM Bonbon WHERE marque LIKE "%":brand"%" '); //Preparation of the selection
+			$req = $bd->prepare('SELECT * FROM bonbon WHERE marque LIKE "%":brand"%" '); //Preparation of the selection
 
 			$req->execute($search); //Execution
 
@@ -125,7 +127,7 @@
 
 			$bd = self::getDB(); //Connection
 
-			$req = $bd->prepare('SELECT * FROM Bonbon WHERE saveur LIKE "%":flavor"%" '); //Preparation of the selection
+			$req = $bd->prepare('SELECT * FROM bonbon WHERE saveur LIKE "%":flavor"%" '); //Preparation of the selection
 
 			$req->execute($search); //Execution
 
@@ -153,7 +155,7 @@
 
 				$bd = self::getDB();
 
-				$req = $bd->prepare('SELECT nomBonbon FROM Bonbon WHERE idBonbon = :id'); //Preparation of the selection
+				$req = $bd->prepare('SELECT nomBonbon FROM bonbon WHERE idBonbon = :id'); //Preparation of the selection
 
 				$req->execute($tab); //Exection of the request
 				$data = $req->fetch();
@@ -181,7 +183,7 @@
 
 				$bd = self::getDB(); 
 
-				$req = $bd->prepare('SELECT saveur FROM Bonbon WHERE idBonbon = :id'); //Preparation of the selection
+				$req = $bd->prepare('SELECT saveur FROM bonbon WHERE idBonbon = :id'); //Preparation of the selection
 
 				$req->execute($tab); //Execution of the request
 				$data = $req->fetch();
@@ -209,7 +211,7 @@
 
 				$bd = self::getDB();
 
-				$req = $bd->prepare('SELECT marque FROM Bonbon WHERE idBonbon = :id'); //Preparation of the selection 
+				$req = $bd->prepare('SELECT marque FROM bonbon WHERE idBonbon = :id'); //Preparation of the selection 
 
 				$req->execute($tab); //Exection of the request
 				$data = $req->fetch();
@@ -237,7 +239,7 @@
 
 				$bd = self::getDB();
 
-				$req = $bd->prepare('SELECT prixUnit FROM Bonbon WHERE idBonbon = :id'); //Preparation of the selection
+				$req = $bd->prepare('SELECT prixUnit FROM bonbon WHERE idBonbon = :id'); //Preparation of the selection
 
 				$req->execute($tab); //Exection of the request
 
@@ -266,7 +268,7 @@
 
 				$bd = self::getDB();
 
-				$req = $bd->prepare('SELECT description FROM Bonbon WHERE idBonbon = :id'); //Preparation of the selection
+				$req = $bd->prepare('SELECT description FROM bonbon WHERE idBonbon = :id'); //Preparation of the selection
 
 				$req->execute($tab); //Exection of the request
 				$data = $req->fetch();
