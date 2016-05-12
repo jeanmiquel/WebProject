@@ -3,9 +3,11 @@
 
 
 <footer>
+		<div class='leftfoot'>
 		<p>
 		@Copyright Jean Miquel - 2016
 		</p>
+		</div>
 </footer>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
