@@ -50,7 +50,7 @@
                         if ((ModelBasket::NbCandy($candy['idBonbon'])[0]) == 0)  //If the candy isn't in the basket, a new table 'ACHETER ' will be created
                         {
                             echo
-                            "<form method='POST' action='../controller/ControllerBasket.php'>
+                            "<form class='candy' method='POST' action='../controller/ControllerBasket.php'>
                                 <input type='number' name='quantity' step='1' class='form-control'>
                                 <input type='hidden' name='action' value='addQuantity'>
                                 <input type='hidden' name='idCandy' value=",$candy['idBonbon'],">
@@ -60,7 +60,7 @@
                         else //If the candy is already in the basket, add will update the basket
                         {
                             echo
-                            "<form method='POST' action='../controller/ControllerBasket.php'>
+                            "<form class='candy' method='POST' action='../controller/ControllerBasket.php'>
                                 <input type='number' name='quantity' step='1' class='form-control'>
                                 <input type='hidden' name='action' value='modifyQuantity'>
                                 <input type='hidden' name='idCandy' value=",$candy['idBonbon'],">
@@ -71,7 +71,7 @@
                 }
                 
                 echo 
-                "<form action='../controller/ControllerOpinion.php' method='POST'>
+                "<form class ='opbutton' action='../controller/ControllerOpinion.php' method='POST'>
                 <input type='hidden' value='showOpinion' name='action'>
                 <button type='submit' name='idCandy' value=",$candy['idBonbon']," class='btn btn-default'>Opinions</button>
                 </form>
