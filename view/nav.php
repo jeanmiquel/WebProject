@@ -13,7 +13,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../view/index.php">Home</a>
+            <a class="navbar-brand" href="../view/index.php">
+                <span class='glyphicon glyphicon-home' aria-hidden='true'>  <!--Home Icon-->
+            </a>
         </div>
         
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,7 +34,7 @@
                $user = $_COOKIE['id']; 
                echo  
                 "<ul class='nav navbar-nav'>
-                    <li class='active'><a href='../controller/ControllerProfile.php''>Profile<span class='sr-only'>(current)</span></a></li>
+                    <li class='active'><a href='../controller/ControllerProfile.php''>Profile<span class='sr-only'>(current)</span></a></li>    
                 </ul>";
             }
 
@@ -45,7 +47,9 @@
                 <div class="form-group">
                     <input type="text" name="name" id="name" class="form-control" placeholder="Name">
                         </div>
-                <button type="submit" class="btn btn-default" >Search</button>
+                <button type="submit" class="btn btn-default" >
+                     <span class='glyphicon glyphicon-search' aria-hidden='true'>   <!--Search Icon-->
+                </button>
             </form>
 
             <!--Flavor Research input-->
@@ -55,7 +59,9 @@
                 <div class="form-group">
                     <input type="text" name="flavor" id="flavor" class="form-control" placeholder="Flavor">
                         </div>
-                <button type="submit" class="btn btn-default">Search</button>
+                <button type="submit" class="btn btn-default">
+                     <span class='glyphicon glyphicon-search' aria-hidden='true'>   <!--Search Icon-->
+                </button>
             </form>
 
             <!--Brand Research input-->
@@ -65,7 +71,9 @@
                 <div class="form-group">
                     <input type="text" name="brand" id="brand" class="form-control" placeholder="Brand">
                         </div>
-                <button type="submit" class="btn btn-default">Search</button>
+                <button type="submit" class="btn btn-default">
+                    <span class='glyphicon glyphicon-search' aria-hidden='true'>    <!--Search Icon-->
+                </button>
             </form>
 
 
@@ -106,7 +114,9 @@
                     echo 
                     "<ul class='nav navbar-nav navbar-left'>
                         <li class='dropdown'>
-                            <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Settings <span class='caret'></span></a>
+                            <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
+                                <span class='glyphicon glyphicon-cog' aria-hidden='true'>
+                                </span></a>
                             <ul class='dropdown-menu'>
                                 <li><a href='../view/newCandy.php'>Add a candy</a></li>
                                 <li role='separator' class='divider'></li>

@@ -13,14 +13,14 @@
         <div class="page">
 
         <div class="global-image">  
-            <h1>Your sweety research</h1>
+            <p>Your sweety research</p>
         </div>   
 
 
 	<!--Catalog-->
 
     <div class="catalogue">
-    <table class="table table-bordered">
+    <table class="table table-stripped">
 
         <tr>
             <th>NAME</th>
@@ -54,7 +54,8 @@
                                 <input type='number' name='quantity' step='1' class='form-control'>
                                 <input type='hidden' name='action' value='addQuantity'>
                                 <input type='hidden' name='idCandy' value=",$candy['idBonbon'],">
-                                <button type='submit' class='btn btn-default'>Add</button>
+                                <button type='submit' class='btn btn-default'>
+                                <span class='glyphicon glyphicon-ok' aria-hidden='true'></button>
                             </form>";
                         }
                         else //If the candy is already in the basket, add will update the basket
@@ -64,7 +65,8 @@
                                 <input type='number' name='quantity' step='1' class='form-control'>
                                 <input type='hidden' name='action' value='modifyQuantity'>
                                 <input type='hidden' name='idCandy' value=",$candy['idBonbon'],">
-                                <button type='submit' class='btn btn-default'>Add</button>
+                                <button type='submit' class='btn btn-default'>
+                                <span class='glyphicon glyphicon-ok' aria-hidden='true'></button>
                             </form>";
                         }
                     }
@@ -73,7 +75,7 @@
                 echo 
                 "<form class ='opbutton' action='../controller/ControllerOpinion.php' method='POST'>
                 <input type='hidden' value='showOpinion' name='action'>
-                <button type='submit' name='idCandy' value=",$candy['idBonbon']," class='btn btn-default'>Opinions</button>
+                <button type='submit' name='idCandy' value=",$candy['idBonbon']," class='btn btn-danger'>Opinions</button>
                 </form>
 
                 </td>
@@ -89,7 +91,8 @@
                         echo "<td>
                             <form action='../controller/ControllerCandy.php' method='POST' class='formbutton'>
                                 <input type='hidden' value='deleteCandy' name='action'>
-                                <button type='submit' name='idCandy' value=",$candy['idBonbon']," class='btn btn-default'>Delete</button>
+                                <button type='submit' name='idCandy' value=",$candy['idBonbon']," class='btn btn-default'>
+                                <span class='glyphicon glyphicon-trash' aria-hidden='true'></button>
                             </form>
                         </td>";
                     }

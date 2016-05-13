@@ -13,7 +13,7 @@
     <div class="page">
 
     <div class="global-image">  
-        <h1>Sweety registration</h1>
+        <p>Sweety registration</p>
     </div>   
 
 
@@ -51,7 +51,9 @@
     		<input type="email" name="mail_confirm" class="form-control" id="mail_confirm" style="width:20%">
   		</div>
  
-  		<button type="submit" class="btn btn-default">Submit</button>
+  		<button type="submit" class="btn btn-info">
+        <span class='glyphicon glyphicon-ok' aria-hidden='true'>  <!--OK Icon-->
+      </button>
       <input type="hidden" value="registration" name="action">
 
 	</form>

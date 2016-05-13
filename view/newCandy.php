@@ -18,13 +18,13 @@
         <div class="page">
 
         <div class="global-image">  
-            <h1>Add a new sweet candy</h1>
+            <p>Add a new sweet candy</p>
         </div>   
 
 
           <!--Formular-->
 
-          <form method="POST" action="../controller/ControllerCandy.php">
+          <form class="formregist" method="POST" action="../controller/ControllerCandy.php">
 
         		<div class="form-group">
           		<label for="pseudo">Name</label>
@@ -51,7 +51,9 @@
           		<input type="text" name="descr" class="form-control" id="descr" style="width:20%">
         		</div>
 
-        		<button type="submit" class="btn btn-default">Submit</button>
+        		<button type="submit" class="btn btn-default">
+              <span class='glyphicon glyphicon-ok' aria-hidden='true'>  
+            </button>
             <input type="hidden" value="addCandy" name="action">
 
 

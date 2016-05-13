@@ -13,14 +13,14 @@
             <div class="page">
 
             <div class="global-image">  
-                <h1>Your sweety basket</h1>
+                <p>Your sweety basket</p>
             </div>   
 
 
         <!--Informations-->
 
 		<div class="catalogue">
-            <table class="table table-bordered">
+            <table class="table table-stripped">
 
             <tr>
                 <th>CANDY NAME</th>
@@ -70,11 +70,15 @@
 
             <form class="basketbutton" action='../controller/ControllerBasket.php' method='POST'>
                 <input type='hidden' name='action' value='validBasket'>
-                <button type="submit" class="btn btn-default">Purchase</button>
+                <button type="submit" class="btn btn-success">
+                    <span class='glyphicon glyphicon-ok' aria-hidden='true'>
+                </button>
             </form>
             <form class="basketbutton" action='../controller/ControllerBasket.php' method='POST'>
                 <input type='hidden' name='action' value='cancelBasket'>
-                <button type="submit" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-danger">
+                    <span class='glyphicon glyphicon-remove' aria-hidden='true'>
+                </button>
             </form>
         
 

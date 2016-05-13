@@ -4,6 +4,7 @@
 
 
 <?php require_once '../model/ModelCandy.php';
+      require_once '../model/ModelUser.php';
 	  require_once '../model/ModelBasket.php'; ?>
 
    <body>
@@ -17,13 +18,13 @@
         <div class="page">
 
         <div class="global-image">  
-            <h1>Welcome to Candies U Need</h1>
+            <p class="welcome">Welcome to Candies U Need</p>
         </div>   
 
                 <!--Catalogue--> 
 
         <div class="catalogue">
-        <table class="table table-bordered">
+        <table class="table table-stripped">
 
 	    <tr>
         <th>NAME</th>
@@ -66,7 +67,8 @@
     	        				<input type='number' name='quantity' step='1' class='form-control'>
     	        				<input type='hidden' name='action' value='addQuantity'>
     	        				<input type='hidden' name='idCandy' value=",$candy['idBonbon'],">
-    	        				<button type='submit' class='btn btn-default'>Add</button>
+    	        				<button type='submit' class='btn btn-info'>
+                                <span class='glyphicon glyphicon-ok' aria-hidden='true'></button>
     	        			</form>";
                         }
                         else //If the candy is already in the basket, add will update the basket
@@ -76,7 +78,8 @@
                                 <input type='number' name='quantity' step='1' class='form-control'>
                                 <input type='hidden' name='action' value='modifyQuantity'>
                                 <input type='hidden' name='idCandy' value=",$candy['idBonbon'],">
-                                <button type='submit' class='btn btn-default'>Add</button>
+                                <button type='submit' class='btn btn-info'>
+                                <span class='glyphicon glyphicon-ok' aria-hidden='true'></button>
                             </form>";
                         }
 	        		}
@@ -85,7 +88,8 @@
     			echo 
                 "<form class ='opbutton' action='../controller/ControllerOpinion.php' method='POST'>
                     <input type='hidden' value='showOpinion' name='action'>
-    				<button type='submit' name='idCandy' value=",$candy['idBonbon']," class='btn btn-default'>Opinions</button>
+    				<button type='submit' name='idCandy' value=",$candy['idBonbon']," class='btn btn-danger'>Opinions
+                    </button>
     			</form>
     			</div>
 
@@ -96,19 +100,19 @@
     			<td>",$candy['marque'],"</td>
     			<td>",$candy['description'],"</td>";
 
-                if (isset($_COOKIE['status']))  //If the user is logged in
+                if ($_COOKIE['status'] == 'admin')  //Check if the user is an administrator
                 {
-                    if ($_COOKIE['status'] == 'admin')  //Check if the user is an administrator
-                    {
                                     //Add the DELETE button and send the candy's ID for the Controller
-                        echo "<td>
-                            <form action='../controller/ControllerCandy.php' method='POST' class='formbutton'>
-                                <input type='hidden' value='deleteCandy' name='action'>
-                                <button type='submit' name='idCandy' value=",$candy['idBonbon']," class='btn btn-default'>Delete</button>
-                            </form>
+                     echo "<td>
+                        <form action='../controller/ControllerCandy.php' method='POST' class='formbutton'>
+                            <input type='hidden' value='deleteCandy' name='action'>
+                            <button type='submit' name='idCandy' value=",$candy['idBonbon']," class='btn btn-default'>
+                            <span class='glyphicon glyphicon-trash' aria-hidden='true'></button>
+                        </form>
                         </td>";
-                    }
                 }
+                
+            
 
     		    echo "</tr>";     /**End of the table line**/
         }

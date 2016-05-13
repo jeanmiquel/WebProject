@@ -23,13 +23,13 @@
                 <div class="page">
 
                 <div class="global-image">  
-                    <h1>Baskets History</h1>
+                    <p>Baskets History</p>
                 </div>   
 
 
 
         		<div class="catalogue">
-                    <table class="table table-bordered">
+                    <table class="table table-stripped">
 
                     <tr>
                         <th>USERNAME</th>
@@ -63,7 +63,7 @@
                                     $totalPrice = $totalPrice + ( ModelCandy::getCandyPrice($purchase['idBonbon'])[0] * $purchase[3] ); //Increase the total price value
                                 }
 
-                                echo "<td> TOTAL PRICE : ",$totalPrice," €</td></tr>";
+                                echo "<td class='price'> TOTAL PRICE : ",$totalPrice," €</td></tr>";
                             }
                         }
 

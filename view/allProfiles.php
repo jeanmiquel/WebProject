@@ -22,13 +22,13 @@
                 <div class="page">
 
                 <div class="global-image">  
-                    <h1>Users Profile</h1>
+                    <p>Users Profile</p>
                 </div>   
 
                 <!--CATALOG-->
 
         		<div class="catalogue">
-                    <table class="table table-bordered">
+                    <table class="table table-stripped">
 
                     <tr>
                         <th>USERNAME</th>
@@ -53,7 +53,8 @@
                                 <td>
                                     <form action='../controller/ControllerUser.php' method='POST' class='formbutton'>
                                         <input type='hidden' value='deleteUser' name='action'>
-                                        <button type='submit' name='idUser' value=",$profile['idUser']," class='btn btn-default'>Delete</button>
+                                        <button type='submit' name='idUser' value=",$profile['idUser']," class='btn btn-default'>
+                                        <span class='glyphicon glyphicon-trash' aria-hidden='true'></button>
                                     </form>
                                 </td>";
                              

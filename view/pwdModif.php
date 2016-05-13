@@ -12,7 +12,7 @@
     <div class="page">
 
     <div class="global-image">  
-        <h1>Password Modification</h1>
+        <p>Password Modification</p>
     </div>   
 
     <!--Modification formular-->

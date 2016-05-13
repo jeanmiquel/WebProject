@@ -13,13 +13,13 @@
         <div class="page">
 
         <div class="global-image">  
-            <h1>Your sweety profile</h1>
+            <p>Your sweety profile</p>
         </div>   
 
         <!--Informations-->
 
 		<div class="catalogue">
-            <table class="table table-bordered">
+            <table class="table table-stripped">
 
             <tr>
                 <th>USERNAME</th>

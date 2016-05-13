@@ -14,14 +14,14 @@
         <div class="page">
 
         <div class="global-image">  
-            <h1>Sweety comments</h1>
+            <p>Sweety comments</p>
         </div>   
 
 
        <!--OPINION CATALOG-->
 
 		<div class="catalogue">
-        <table class="table table-bordered">
+        <table class="table table-stripped">
 
         <tr>
             <th>USERNAME</th>

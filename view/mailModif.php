@@ -12,7 +12,7 @@
     <div class="page">
 
     <div class="global-image">  
-        <h1>E-Mail Modification</h1>
+        <p>E-Mail Modification</p>
      </div>   
 
 
