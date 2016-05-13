@@ -3,8 +3,10 @@
 <!--HOME PAGE OF THE WEB SITE-->
 
 
-<?php require_once '../model/ModelCandy.php';
-      require_once '../model/ModelUser.php';
+<?php 
+
+
+      require_once '../model/ModelCandy.php';
 	  require_once '../model/ModelBasket.php'; ?>
 
    <body>
@@ -100,16 +102,20 @@
     			<td>",$candy['marque'],"</td>
     			<td>",$candy['description'],"</td>";
 
-                if ($_COOKIE['status'] == 'admin')  //Check if the user is an administrator
+
+                if (isset($_COOKIE['status']))
                 {
-                                    //Add the DELETE button and send the candy's ID for the Controller
-                     echo "<td>
-                        <form action='../controller/ControllerCandy.php' method='POST' class='formbutton'>
-                            <input type='hidden' value='deleteCandy' name='action'>
-                            <button type='submit' name='idCandy' value=",$candy['idBonbon']," class='btn btn-default'>
-                            <span class='glyphicon glyphicon-trash' aria-hidden='true'></button>
-                        </form>
-                        </td>";
+                    if ($_COOKIE['status'] == 'admin')  //Check if the user is an administrator
+                    {
+                                        //Add the DELETE button and send the candy's ID for the Controller
+                         echo "<td>
+                            <form action='../controller/ControllerCandy.php' method='POST' class='formbutton'>
+                                <input type='hidden' value='deleteCandy' name='action'>
+                                <button type='submit' name='idCandy' value=",$candy['idBonbon']," class='btn btn-default'>
+                                <span class='glyphicon glyphicon-trash' aria-hidden='true'></button>
+                            </form>
+                            </td>";
+                    }
                 }
                 
             

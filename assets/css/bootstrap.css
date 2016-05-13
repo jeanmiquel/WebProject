@@ -2266,6 +2266,7 @@ th {
   max-width: 100%;
   margin-bottom: 20px;
 }
+
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th,
@@ -2293,7 +2294,7 @@ th {
   border-top: 2px solid #ddd;
 }
 .table .table {
-  background-color: #fff;
+  background-color: #000000;
 }
 .table-condensed > thead > tr > th,
 .table-condensed > tbody > tr > th,

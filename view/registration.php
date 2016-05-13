@@ -51,10 +51,12 @@
     		<input type="email" name="mail_confirm" class="form-control" id="mail_confirm" style="width:20%">
   		</div>
  
-  		<button type="submit" class="btn btn-info">
-        <span class='glyphicon glyphicon-ok' aria-hidden='true'>  <!--OK Icon-->
-      </button>
-      <input type="hidden" value="registration" name="action">
+                  <input type="hidden" value="registration" name="action">
+  		<button type="submit" class="btn btn-info">Submit</button>
+
+
+          <!--OK Icon-->
+
 
 	</form>
 

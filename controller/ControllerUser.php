@@ -4,11 +4,15 @@
 
 <?php 
 
+
+
 require_once '../model/ModelUser.php';
 
 
 
 //Get the value of the input action in the view and create an action variable
+
+
 if(isset($_POST["action"]))
     {
        $action = $_POST["action"];
@@ -29,11 +33,11 @@ switch($action) {
 
 
         //Creation of variable for all the inputs from the formular
-        $pseudo= htmlspecialchars($_POST['pseudo']);
+        $pseudo= htmlspecialchars($_POST['pseudo']));  
         $lastname = $_POST['lastname'];
         $firstname = $_POST['firstname'];
         $mail= $_POST['mail'];
-        $password = sha1($_POST['password']);
+        $password = sha1($_POST['password']);   //Crypt the pwd
 
 
         //If all the lines in the formular are filled
@@ -194,7 +198,6 @@ switch($action) {
     //If the action is a connection
     case 'connection':
 
-
         //Check there's a pseudo and password input then create a variable for each one
         if(isset($_POST["pseudo"]))
         {
@@ -237,12 +240,12 @@ switch($action) {
 
                 //Creation of the user cookie with the received values from the model
                 $expire = 3600*24*30;
-                setcookie("pseudo",$data[3],time()+ $expire, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
-                setcookie("id",$data[0],time()+ $expire, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
-                setcookie("mail",$data[5],time()+ $expire, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
-                setcookie("lastname",$data[1],time()+ $expire, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
-                setcookie("firstname",$data[2],time()+ $expire, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
-                setcookie("status",$data[6],time()+ $expire, "/", "sweetcandy-candyuneed.rhcloud.com",false,true);
+                setcookie("pseudo",$data[3],time()+ $expire, "/", null,false,true);
+                setcookie("id",$data[0],time()+ $expire, "/", null,false,true);
+                setcookie("mail",$data[5],time()+ $expire, "/", null,false,true);
+                setcookie("lastname",$data[1],time()+ $expire, "/", null,false,true);
+                setcookie("firstname",$data[2],time()+ $expire, "/", null,false,true);
+                setcookie("status",$data[6],time()+ $expire, "/", null,false,true);
 
                 header('Location: ../view/index.php');
 

@@ -135,33 +135,6 @@ class ModelUser extends Model {
     }
 
 
-    /**
-    *Param: Nothing (will take the id value of cookie)
-    *Return: Boolean, if the user is admin
-    **/
-    public static function isAdmin() {
-
-        $bd = self::getDB();    //Connection to the DB
-
-        $user=array( 'id' => $_COOKIE['id'] );  //Array parameter with the ID of the user
-
-        $req=$bq->prepare('SELECT statusUser FROM utilisateur WHERE idUser = :id'); //Select the status of the user
-
-        $req->execute($user);
-
-        $data = $req->fetch();  //Put the result in an array
-
-        if ($data[0] == 'admin')
-        {
-            return 1;   //Return 1 if user is admin, else return 0
-        }
-        else
-        {
-            return 0;
-        }
-    }
-
-
 
 
 
