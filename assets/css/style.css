@@ -4,8 +4,22 @@
 	padding: 0;
 }
 
+/**FONTS IMPORT**/
+
+@font-face {
+  font-family: "Cooper Black";
+  src: url("../fonts/cooperblack.ttf");
+}
+
 /**HTML LABELS**/
 
+
+
+
+html
+{
+  background-color: #FF6666;
+}
 
 header
 {
@@ -13,15 +27,27 @@ header
 	margin: 0 !important;
 }
 
-h1
+body
 {
-	text-align: center;
+	/**Stripped background red/white**/
+	background: repeating-linear-gradient(	
+    	-55deg,
+    	#FF6666,
+    	#FF6666 10px,
+    	#F0F0F0 10px,
+    	#F0F0F0 20px
+  );
 }
 
 form
 {
 	margin-top: 100px;
 	margin-left:600px;
+}
+
+th
+{
+	font-family: 'Cooper Black', serif;
 }
 
 td
@@ -33,6 +59,9 @@ footer
 {
 	margin : 30px;
 	padding: 10px;
+	text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;	/**Shadow letter**/
+	font-weight: bold;
+	color: #FFCC33;
 }
 
 /**MY OWN CLASS LABELS**/
@@ -40,10 +69,23 @@ footer
 .global-image
 {
 	position: relative;
-	background-color: #f8f8f8:;
+
 	background-size: cover;
 	height: 150px;
 	margin-top: 120px;
+					/**text on the top for every pages**/
+	text-align: center;
+	text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;	/**Shadow letter**/
+	font-family: 'Cooper Black', serif;
+	font-weight: bold;
+	font-size: 3em;
+	color: #FFCC33;
+}
+
+.welcome
+{
+	font-size: 150%;	/**Bigger text for the welcome page than the others**/
+	margin: auto;
 }
 
 
@@ -90,24 +132,35 @@ footer
 	padding: 0px 0;
 	margin-left: 20px;
 	margin-right: 20px;
+	background-color: #FFCC33;
+}
+
+.price
+{
+	font-weight: bold;
 }
 
 .formregist
 {
 	margin: auto;
 	padding-left: 100px;
+	text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;	/**Shadow letter**/
+	color: #FFCC33;
 }
 
 .formconnec
 {
 	margin: auto;
 	padding-left: 100px;
+	text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;	/**Shadow letter**/
+	color: #FFCC33;
 }
 
-.inscriptionLink
+.registrationLink
 {
-	margin-left:120px;
-	margin-bottom: 500px;
+	margin-left: 150px;
+	text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;	/**Shadow letter**/
+	color: #FFCC33;
 }
 
 .leftfoot
@@ -119,4 +172,6 @@ footer
 .rightfoot
 {
 	align: center;
+	text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;	/**Shadow letter**/
+	color: #FFCC33;
 }
