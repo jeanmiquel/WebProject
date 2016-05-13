@@ -68,16 +68,15 @@
 
         <!--Button to commit the basket and purchase the candies-->
 
-        <div class="basketbutton">
-            <form action='../controller/ControllerBasket.php' method='POST'>
+            <form class="basketbutton" action='../controller/ControllerBasket.php' method='POST'>
                 <input type='hidden' name='action' value='validBasket'>
-                <button type="submit" class="btn btn-default navbar-left">Purchase</button>
+                <button type="submit" class="btn btn-default">Purchase</button>
             </form>
-            <form action='../controller/ControllerBasket.php' method='POST'>
+            <form class="basketbutton" action='../controller/ControllerBasket.php' method='POST'>
                 <input type='hidden' name='action' value='cancelBasket'>
-                <button type="submit" class="btn btn-default navbar-lefts">Cancel</button>
+                <button type="submit" class="btn btn-default">Cancel</button>
             </form>
-        </div>
+        
 
 
         </div>  <!--End of the page div-->
