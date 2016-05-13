@@ -115,32 +115,53 @@ class ModelUser extends Model {
 
     public static function getUsername($id) {
 
-        try
-            {   
-                //Array containing the ID parameter, will be used for the execution as a parameter
-                $user=array(
-                'id' => $id
-                );
 
-                $bd = self::getDB();
+            //Array containing the ID parameter, will be used for the execution as a parameter
+        $user=array(
+            'id' => $id
+            );
 
-                $req = $bd->prepare('SELECT pseudoUser FROM utilisateur WHERE idUser = :id'); //Preparation of the selection
+        $bd = self::getDB();
 
-                $req->execute($user); //Exection of the request
+        $req = $bd->prepare('SELECT pseudoUser FROM utilisateur WHERE idUser = :id'); //Preparation of the selection
 
-                $data = $req->fetch();
+        $req->execute($user); //Exection of the request
 
-                return $data;
+        $data = $req->fetch();
 
-                $req->closeCursor(); 
+        return $data;
 
-            }
-            catch(Exception $e)
-            {
-                die('Erreur : '.$e->getMessage()); 
-            
-            }
+        $req->closeCursor(); 
     }
+
+
+    /**
+    *Param: Nothing (will take the id value of cookie)
+    *Return: Boolean, if the user is admin
+    **/
+    public static function isAdmin() {
+
+        $bd = self::getDB();    //Connection to the DB
+
+        $user=array( 'id' => $_COOKIE['id'] );  //Array parameter with the ID of the user
+
+        $req=$bq->prepare('SELECT statusUser FROM utilisateur WHERE idUser = :id'); //Select the status of the user
+
+        $req->execute($user);
+
+        $data = $req->fetch();  //Put the result in an array
+
+        if ($data[0] == 'admin')
+        {
+            return 1;   //Return 1 if user is admin, else return 0
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+
 
 
 
