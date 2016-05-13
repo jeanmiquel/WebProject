@@ -76,7 +76,7 @@
              if (isset($_COOKIE['pseudo']))
             {
                 echo "<ul class='nav navbar-nav navbar-right'>
-                    <li><a href='../controller/disconnection.php'>Disconnection</a></li>
+                    <li><a href='../controller/disconnection.php'>Sign out</a></li>
                     </ul>";
 
 
@@ -124,8 +124,8 @@
             else
             {
                 echo "<ul class='nav navbar-nav navbar-right'>
-                    <li><a href='../view/connection.php'>Connection</a></li>
-                    <li><a href='../view/registration.php'>Registration</a></li>
+                    <li><a href='../view/connection.php'>Sign in</a></li>
+                    <li><a href='../view/registration.php'>Sign up</a></li>
                     </ul>";
 
             }        
