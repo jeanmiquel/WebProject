@@ -1,7 +1,7 @@
 <?php
 
 
-require_once 'Model.php';
+require_once 'Model.php';   //Son of the Model class to use the PDO function
 
 class ModelUser extends Model {
 
@@ -16,7 +16,7 @@ class ModelUser extends Model {
 
         $bd = self::getDB(); //DB Connection
 
-        $req = $bd->query('SELECT * FROM utilisateur'); //Select every users in the DB
+        $req = $bd->query('SELECT * FROM utilisateur ORDER BY statusUser'); //Select every users in the DB
 
         $data = $req->fetchAll(); //List the result of the request in an array
 
@@ -112,7 +112,10 @@ class ModelUser extends Model {
     ############################### GETTERS ######################################
     ##############################################################################
 
-
+    /**
+    *Param: The id of the user
+    *Return: The username of the user 
+    **/
     public static function getUsername($id) {
 
 
@@ -130,6 +133,31 @@ class ModelUser extends Model {
         $data = $req->fetch();
 
         return $data;
+
+        $req->closeCursor(); 
+    }
+
+    /**
+    *Param: The id of the user
+    *Return: True if the user is admin, False else 
+    **/
+    public static function isAdmin($id) {
+
+
+            //Array containing the ID parameter, will be used for the execution as a parameter
+        $user=array(
+            'id' => $id
+            );
+
+        $bd = self::getDB();
+
+        $req = $bd->prepare('SELECT statusUser FROM utilisateur WHERE idUser = :id'); //Preparation of the selection of the status
+
+        $req->execute($user); //Exection of the request
+
+        $data = $req->fetch();
+
+        return ($data[0] == 'admin');   //Check if the result is 'admin'
 
         $req->closeCursor(); 
     }
@@ -171,7 +199,7 @@ class ModelUser extends Model {
 
         $req->execute($user); //Execute the update
 
-        setcookie("mail",$user['mail'],time()+ (3600*24*30),"/WebProject-masterV1/"); //Update the cookie
+        setcookie("mail",$user['mail'],time()+(3600*24), "/", null,false,true);
 
         $req->closeCursor();
 

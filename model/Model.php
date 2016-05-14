@@ -12,7 +12,7 @@ class Model {
 	    public static function getDB() {
 
 	        
-	        $bd = new PDO("mysql:host=127.2.228.2:3306;dbname=sweetcandy;charset=UTF8", "adminaj9VanD", "q56JSrNMK1u3"); //Connection BD
+	        $bd = new PDO("mysql:host=127.3.128.130:3306;dbname=sweetypleasure;charset=UTF8", "adminEYqiZhJ", "Nn-mRyykPCGc"); //Connection BD
 
 
 	        return $bd;
