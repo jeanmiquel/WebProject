@@ -14,7 +14,6 @@ class Model {
 	        
 	        $bd = new PDO("mysql:host=127.3.128.130:3306;dbname=sweetypleasure;charset=UTF8", "adminEYqiZhJ", "Nn-mRyykPCGc"); //Connection BD
 
-
 	        return $bd;
 
 	    }
