@@ -237,7 +237,7 @@ switch($action) {
             {
 
                 //Creation of the user cookie with the received values from the model
-                $expire = 3600*24;
+                $expire = 3600*24;  //One day living cookies
                 setcookie("pseudo",$data[3],time()+ $expire, "/", null,false,true);
                 setcookie("id",$data[0],time()+ $expire, "/", null,false,true);
                 setcookie("mail",$data[5],time()+ $expire, "/", null,false,true);
