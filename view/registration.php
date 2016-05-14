@@ -41,6 +41,11 @@
     		<input type="password" name="password" class="form-control" id="password" style="width:20%">
   		</div>
 
+      <div class="form-group">
+        <label for="mdp">Password Confirmation</label>
+        <input type="password" name="pwd_confirm" class="form-control" id="pwd_confirm" style="width:20%">
+      </div>
+
 		<div class="form-group">
     		<label for="mail">E-Mail Address</label>
     		<input type="email" name="mail" class="form-control" id="mail" style="width:20%">
@@ -52,7 +57,8 @@
   		</div>
  
                   <input type="hidden" value="registration" name="action">
-  		<button type="submit" class="btn btn-info">Submit</button>
+  		<button type="submit" class="btn btn-info">
+      <span class='glyphicon glyphicon-ok' aria-hidden='true'></button>
 
 
           <!--OK Icon-->

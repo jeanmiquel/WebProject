@@ -18,7 +18,7 @@
 
     <!--Modification formular-->
 
-    <form class="form-horizontal" method='POST' action="../controller/ControllerUser.php">
+    <form class="form-horizontal formconnec" method='POST' action="../controller/ControllerUser.php">
 
       <div class="form-group">
        <label for="mail" class="col-sm-2 control-label">New E-mail address</label>

@@ -7,9 +7,11 @@
 
 
       require_once '../model/ModelCandy.php';
+      require_once '../model/ModelUser.php';
 	  require_once '../model/ModelBasket.php'; ?>
 
    <body>
+
     <?php include ('header.php'); ?>
 
 
@@ -103,10 +105,10 @@
     			<td>",$candy['description'],"</td>";
 
 
-                if (isset($_COOKIE['status']))
+                if (ModelUser::isAdmin($_COOKIE['id']))  //Check if the user is an administrator
                 {
-                    if ($_COOKIE['status'] == 'admin')  //Check if the user is an administrator
-                    {
+                      
+    
                                         //Add the DELETE button and send the candy's ID for the Controller
                          echo "<td>
                             <form action='../controller/ControllerCandy.php' method='POST' class='formbutton'>
@@ -115,7 +117,7 @@
                                 <span class='glyphicon glyphicon-trash' aria-hidden='true'></button>
                             </form>
                             </td>";
-                    }
+                    
                 }
                 
             

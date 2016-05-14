@@ -26,7 +26,7 @@
                 <th>FIRST NAME</th>
                 <th>LAST NAME</th>
                 <th>E-MAIL ADDRESS</th>
-                <th>STATUS</th></tr>
+            </tr>
 
 
     		<?php 
@@ -37,7 +37,6 @@
         			<td>",$profile['firstname'],"</td>
                     <td>",$profile['lastname'],"</td>
                     <td>",$profile['mail'],"</td>
-                    <td>",$profile['status'],"</td>
         		  	</tr>"; 
 
         	?>

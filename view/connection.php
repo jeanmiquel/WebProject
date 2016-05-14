@@ -42,7 +42,7 @@
     <a class="registrationLink" href="registration.php">You don't have any account ? Registration here</a>
     <div class="form-group" style="margin-top: 20px;">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default">Log in</button>
+        <button type="submit" class="btn btn-info">Log in</button>
         <input type="hidden" value="connection" name="action">
       </div>
     </div>

@@ -24,6 +24,7 @@
         <?php
 
             require_once ('../model/ModelBasket.php');
+            require_once ('../model/ModelUser.php');
 
 
 
@@ -83,7 +84,8 @@
             //If the user is connected, show the Disconnection & Settings button for the user to disconnect 
              if (isset($_COOKIE['pseudo']))
             {
-                echo "<ul class='nav navbar-nav navbar-right'>
+                echo "
+                    <ul class='nav navbar-nav navbar-right'>
                     <li><a href='../controller/disconnection.php'>Sign out</a></li>
                     </ul>";
 
@@ -109,7 +111,7 @@
 
 
                 //If the user is an administrator, show the settings dropdown button
-                if ($_COOKIE['status']=='admin')
+                if (ModelUser::isAdmin($_COOKIE['id']))
                 {
                     echo 
                     "<ul class='nav navbar-nav navbar-left'>

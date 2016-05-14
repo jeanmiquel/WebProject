@@ -51,7 +51,7 @@
           		<input type="text" name="descr" class="form-control" id="descr" style="width:20%">
         		</div>
 
-        		<button type="submit" class="btn btn-default">
+        		<button type="submit" class="btn btn-info">
               <span class='glyphicon glyphicon-ok' aria-hidden='true'>  
             </button>
             <input type="hidden" value="addCandy" name="action">
