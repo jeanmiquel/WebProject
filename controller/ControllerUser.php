@@ -13,7 +13,7 @@ require_once '../model/ModelUser.php';
 //Get the value of the input action in the view and create an action variable
 if(isset($_POST["action"]))
     {
-       $action = $_POST["action"];
+         $action = $_POST["action"];
     }
 
 
@@ -35,11 +35,11 @@ switch($action) {
         $lastname = $_POST['lastname'];
         $firstname = $_POST['firstname'];
         $mail= $_POST['mail'];
-        $password = sha1($_POST['password']);   //Crypt the pwd
+        $password = $_POST['password'];  
 
 
-        //If all the lines in the formular are filled
-        if($pseudo != NULL AND $password != NULL AND $lastname != NULL AND $mail != NULL AND $firstname != NULL AND $mail == $_POST['mail_confirm'])
+        //If all the lines in the formular are filled and the confirmation matches
+        if($pseudo != NULL AND $password != NULL AND $lastname != NULL AND $mail != NULL AND $firstname != NULL AND $mail == $_POST['mail_confirm'] AND $password == $_POST['pwd_confirm'])
         {
 
             if (ModelUser::checkUsername($pseudo)[0] == 0)  //If the username isn't already taken
@@ -50,7 +50,7 @@ switch($action) {
                     'lastname' => $lastname,
                     'firstname' => $firstname,
                     'pseudo' => $pseudo,
-                    'password' => $password,
+                    'password' => sha1($password),  //Crypt the password
                     'mail' => $mail
                 );
 
@@ -72,7 +72,7 @@ switch($action) {
 
         else //If there's an input missing, ask the person to try again and redirect to the registration page
     	{ 
-    		$message='<p>Please fill all the lines during your next registration</p>
+    		$message='<p>Lines missing or incorrect confirmations</p>
             <p>Click <a href="../view/registration.php">here</a> to come back</p>';
 
             echo $message;
@@ -154,13 +154,13 @@ switch($action) {
         if(isset($_POST["password"]) and isset($_POST["confirm"]))
         {
             //Get the value
-           $password = $_POST["password"];
+           $password = $_POST["password"];  
            $confirm = $_POST["confirm"];
 
            if ($password == $confirm)
            {
                $pwd=array( //Create the array parameter for the model request
-                'password' => $password,
+                'password' => sha1($password),   //Crypt the pwd
                 'id' => $_COOKIE['id']
                 );
 
@@ -237,13 +237,12 @@ switch($action) {
             {
 
                 //Creation of the user cookie with the received values from the model
-                $expire = 3600*24*30;
+                $expire = 3600*24;
                 setcookie("pseudo",$data[3],time()+ $expire, "/", null,false,true);
                 setcookie("id",$data[0],time()+ $expire, "/", null,false,true);
                 setcookie("mail",$data[5],time()+ $expire, "/", null,false,true);
                 setcookie("lastname",$data[1],time()+ $expire, "/", null,false,true);
                 setcookie("firstname",$data[2],time()+ $expire, "/", null,false,true);
-                setcookie("status",$data[6],time()+ $expire, "/", null,false,true);
 
                 header('Location: ../view/index.php');
 
