@@ -11,8 +11,6 @@ require_once '../model/ModelUser.php';
 
 
 //Get the value of the input action in the view and create an action variable
-
-
 if(isset($_POST["action"]))
     {
        $action = $_POST["action"];
@@ -33,7 +31,7 @@ switch($action) {
 
 
         //Creation of variable for all the inputs from the formular
-        $pseudo= htmlspecialchars($_POST['pseudo']));  
+        $pseudo= htmlspecialchars($_POST['pseudo']);  
         $lastname = $_POST['lastname'];
         $firstname = $_POST['firstname'];
         $mail= $_POST['mail'];
