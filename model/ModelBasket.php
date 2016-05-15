@@ -38,7 +38,7 @@
 
 			$bd = self::getDB();	//Connection
 
-			$req = $bd->query('SELECT * FROM panier');	//Select every baskets in the DB
+			$req = $bd->query('SELECT * FROM panier ORDER BY dateAchat DESC');	//Select every baskets in the DB by descending order of purchase date
 
 			$data = $req->fetchAll();
 
@@ -93,7 +93,7 @@
 
 			$bd = self::getDB();	//Connection
 
-			$req = $bd->prepare('DELETE FROM panier WHERE idUser = :idUser'); //Delete the current basket of the user
+			$req = $bd->prepare('DELETE FROM panier WHERE idUser = :idUser AND dateAchat IS NULL'); //Delete the current basket of the user
 
 			$req->execute($user);
 
