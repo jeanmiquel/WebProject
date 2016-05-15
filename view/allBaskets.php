@@ -34,6 +34,7 @@
                     <tr>
                         <th>USERNAME</th>
                         <th>BASKET ID</th>
+                        <th>PURCHASE DATE</th>
                         <th>CANDIES</th>
                     </tr>
 
@@ -48,7 +49,8 @@
                             {
                                 echo "<tr>
                     			<td>",ModelUser::getUsername($basket[1])[0],"</td>
-                    			<td>",$basket[0],"</td>";
+                    			<td>",$basket[0],"</td>
+                    			<td>",$basket[2],"</td>";
 
                                 $purchases = ModelBasket::getPurchaseByBasket(array( 'id' => $basket[0]));
 
