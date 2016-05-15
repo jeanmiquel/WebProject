@@ -13,8 +13,7 @@
         'pseudo' => $_COOKIE['pseudo'],
         'firstname' => $_COOKIE['firstname'],
         'lastname' => $_COOKIE['lastname'],
-        'mail' => $_COOKIE['mail'],
-        'status' => $_COOKIE['status']
+        'mail' => $_COOKIE['mail']
 
         );
 
